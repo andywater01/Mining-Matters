@@ -8,18 +8,28 @@ public class CameraMovement : MonoBehaviour
     public float sensitivity = .5f;
     public Vector3 deltaMove;
     public float speed = 1;
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
     void Update()
     {
-        turn.x += Input.GetAxis("Mouse X") * sensitivity;
-        turn.y += Input.GetAxis("Mouse Y") * sensitivity;
+        if (Input.GetMouseButton(1))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            turn.x += Input.GetAxis("Mouse X") * sensitivity;
+            turn.y += Input.GetAxis("Mouse Y") * sensitivity;
 
-        turn.x = Mathf.Clamp(turn.x, -60f, 60f);
-        turn.y = Mathf.Clamp(turn.y, -40f, 30f);
+            turn.x = Mathf.Clamp(turn.x, -60f, 60f);
+            turn.y = Mathf.Clamp(turn.y, -40f, 30f);
 
-        transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+            transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        
     }
 }
