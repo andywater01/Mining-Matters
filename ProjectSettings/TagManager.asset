@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Room1_Computer
+  - Room1_BrokenCoreTable
+  - PPE_Boots
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
 {
     public CinemachineVirtualCamera Room1_Main;
     public CinemachineVirtualCamera Room1_Computer;
+    public CinemachineVirtualCamera Room1_BrokenCoreShackTable;
     public Camera mainCam;
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class CameraManager : MonoBehaviour
         {
             Room1_Main.Priority = 1;
             Room1_Computer.Priority = 0;
+            
         }
 
         //Gets reference to gameObject that is clicken on
@@ -51,8 +53,18 @@ public class CameraManager : MonoBehaviour
             if (hit.transform.gameObject.tag == "Room1_Computer")
             {
                 Room1_Main.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 0;
                 Room1_Computer.Priority = 1;
             }
+
+            else if (hit.transform.gameObject.tag == "Room1_BrokenCoreTable")
+            {
+                Room1_Main.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 1;
+                Room1_Computer.Priority = 0;
+            }
+
+
         }
 
     }
