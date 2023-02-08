@@ -1,13 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using TMPro;
 
 public class puzzleInteraction : MonoBehaviour
 {
     public Camera mainCam;
+    public CinemachineVirtualCamera CoreTableCam;
 
     public GameObject[] CorePieceLocations;
     public int index = 0;
+
+    public TextMeshProUGUI PasswordLetter1;
+    public TextMeshProUGUI PasswordLetter2;
+    public TextMeshProUGUI PasswordLetter3;
+    public TextMeshProUGUI PasswordLetter4;
+
+    public bool correctPassword = true;
+
+    public string password;
     
 
     // Start is called before the first frame update
@@ -23,6 +35,9 @@ public class puzzleInteraction : MonoBehaviour
         {
             ShootRaycast();
         }
+
+
+        
     }
 
     
@@ -34,13 +49,18 @@ public class puzzleInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 1000f))
         {
-            //Check if you clicked on a core piece
-            if (hit.transform.gameObject.tag == "BrokenCore")
+            //Can only interact with core pieces if user is on the right camera looking at the table
+            if (CoreTableCam.Priority > 0)
             {
-                Debug.Log("Grab Core");
-                hit.transform.position = CorePieceLocations[index].transform.position;
-                index++;
+                //Check if you clicked on a core piece
+                if (hit.transform.gameObject.tag == "BrokenCore")
+                {
+                    Debug.Log("Grab Core");
+                    hit.transform.position = CorePieceLocations[index].transform.position;
+                    index++;
+                }
             }
+            
 
 
 
@@ -48,4 +68,38 @@ public class puzzleInteraction : MonoBehaviour
         }
 
     }
+
+
+    public void SetPasswordGuess()
+    {
+        
+        
+    }
+
+
+    // Attached to button on computer screen. On Click Event.
+    public void CheckPasswordRoom1()
+    {
+        
+        if (correctPassword == false)
+        {
+            password = "mine";
+
+
+            if ((PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text) == password)
+            {
+                // The correct password was entered on room1 computer.
+                Debug.Log("Correct Password");
+                correctPassword = true;
+            }
+            else
+            {
+                Debug.Log("Incorrect Password");
+                Debug.Log(PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text);
+            }
+        }
+    }
+
+
+
 }
