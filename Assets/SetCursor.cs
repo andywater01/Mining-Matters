@@ -40,7 +40,7 @@ public class SetCursor : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             gs.SetMouseOver(false);
-            
+            Cursor.SetCursor(OpenCursor, hotspot, CursorMode.Auto);
 
         }
 

@@ -13,6 +13,7 @@ public class CollectItem : MonoBehaviour
     public Camera mainCam;
 
     public Image[] Inventory;
+   
 
     public Sprite itemImage;
     
