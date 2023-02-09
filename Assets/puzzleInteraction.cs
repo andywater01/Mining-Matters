@@ -17,10 +17,11 @@ public class puzzleInteraction : MonoBehaviour
     public TextMeshProUGUI PasswordLetter3;
     public TextMeshProUGUI PasswordLetter4;
 
-    public bool correctPassword = true;
+    public bool correctPassword = false;
 
-    public string password;
-    
+    public string password = "mine";
+
+    public string Guessedpassword;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class puzzleInteraction : MonoBehaviour
             ShootRaycast();
         }
 
-
+        random();
         
     }
 
@@ -72,8 +73,8 @@ public class puzzleInteraction : MonoBehaviour
 
     public void SetPasswordGuess()
     {
-        
-        
+
+        Guessedpassword = (PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text).ToString();
     }
 
 
@@ -83,10 +84,10 @@ public class puzzleInteraction : MonoBehaviour
         
         if (correctPassword == false)
         {
-            password = "mine";
+            
 
 
-            if ((PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text) == password)
+            if (Guessedpassword == password)
             {
                 // The correct password was entered on room1 computer.
                 Debug.Log("Correct Password");
@@ -100,6 +101,23 @@ public class puzzleInteraction : MonoBehaviour
         }
     }
 
+    public void random()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Guessedpassword = (PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text).ToString();
+            if (Guessedpassword == password)
+            {
+                // The correct password was entered on room1 computer.
+                Debug.Log("Correct Password");
+                correctPassword = true;
+            }
+            else
+            {
+                Debug.Log("Test");
+            }
+        }
+    }
 
 
 }
