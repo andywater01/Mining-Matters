@@ -11,6 +11,8 @@ TagManager:
   - Room1_Geo_Poster
   - BrokenCoreOnTable
   - Room1_CrossSectionPoster
+  - Button
+  - CoreBoxDeskSpace
   layers:
   - Default
   - TransparentFX

@@ -5,12 +5,13 @@ using Cinemachine;
 using TMPro;
 using UnityEngine.UI;
 
-public class puzzleInteraction : MonoBehaviour
+public class BrokenCoreInteraction : MonoBehaviour
 {
     public Camera mainCam;
     public CinemachineVirtualCamera CoreTableCam;
     public GameState gs;
 
+    
     public GameObject[] CorePieceLocations;
     public GameObject[] OriginalCorePieceLocations;
     //public bool[] CurrentTableLocations = { false, false, false, false };
