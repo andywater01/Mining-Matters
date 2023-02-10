@@ -10,6 +10,7 @@ TagManager:
   - BrokenCore
   - Room1_Geo_Poster
   - BrokenCoreOnTable
+  - Room1_CrossSectionPoster
   layers:
   - Default
   - TransparentFX

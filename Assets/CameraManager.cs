@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera Room1_Computer;
     public CinemachineVirtualCamera Room1_BrokenCoreShackTable;
     public CinemachineVirtualCamera Room1_Geo_Poster;
+    public CinemachineVirtualCamera Room1_CrossSectionPoster;
     public Camera mainCam;
 
     // Update is called once per frame
@@ -38,7 +39,19 @@ public class CameraManager : MonoBehaviour
                 Room1_Geo_Poster.Priority = 0;
                 Room1_BrokenCoreShackTable.Priority = 1;
             }
-            
+
+            else if (Room1_CrossSectionPoster.Priority == 1)
+            {
+                Room1_CrossSectionPoster.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 1;
+            }
+
+            else if (Room1_BrokenCoreShackTable.Priority == 1)
+            {
+                Room1_BrokenCoreShackTable.Priority = 0;
+                Room1_Main.Priority = 1;
+            }
+
         }
 
         //Gets reference to gameObject that is clicken on
@@ -66,6 +79,7 @@ public class CameraManager : MonoBehaviour
                 Room1_BrokenCoreShackTable.Priority = 0;
                 Room1_Computer.Priority = 1;
                 Room1_Geo_Poster.Priority = 0;
+                Room1_CrossSectionPoster.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "Room1_BrokenCoreTable")
@@ -74,6 +88,7 @@ public class CameraManager : MonoBehaviour
                 Room1_BrokenCoreShackTable.Priority = 1;
                 Room1_Computer.Priority = 0;
                 Room1_Geo_Poster.Priority = 0;
+                Room1_CrossSectionPoster.Priority = 0;
             }
 
             else if(Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_Geo_Poster")
@@ -82,6 +97,16 @@ public class CameraManager : MonoBehaviour
                 Room1_BrokenCoreShackTable.Priority = 0;
                 Room1_Computer.Priority = 0;
                 Room1_Geo_Poster.Priority = 1;
+                Room1_CrossSectionPoster.Priority = 0;
+            }
+
+            else if (Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_CrossSectionPoster")
+            {
+                Room1_Main.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 0;
+                Room1_Computer.Priority = 0;
+                Room1_Geo_Poster.Priority = 0;
+                Room1_CrossSectionPoster.Priority = 1;
             }
 
 
