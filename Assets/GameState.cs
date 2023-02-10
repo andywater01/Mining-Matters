@@ -6,6 +6,7 @@ public class GameState : MonoBehaviour
 {
     private bool mouseOver = false;
     private bool hasPPEBoots = false;
+    private bool completeRoom1PasswordPuzzle = false;
 
     //Check Mouse Over State
     public bool GetMouseOver()
@@ -28,6 +29,19 @@ public class GameState : MonoBehaviour
     public void SetPPEState(bool ppe)
     {
         hasPPEBoots = ppe;
+    }
+
+
+    public bool GetRoom1PasswordPuzzle()
+    {
+        return completeRoom1PasswordPuzzle;
+    }
+
+    public void SetRoom1PasswordPuzzle(bool cp)
+    {
+        completeRoom1PasswordPuzzle = cp;
+
+        Debug.Log("WORKED!!");
     }
 
 

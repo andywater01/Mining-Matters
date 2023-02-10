@@ -8,6 +8,8 @@ TagManager:
   - Room1_BrokenCoreTable
   - PPE_Boots
   - BrokenCore
+  - Room1_Geo_Poster
+  - BrokenCoreOnTable
   layers:
   - Default
   - TransparentFX

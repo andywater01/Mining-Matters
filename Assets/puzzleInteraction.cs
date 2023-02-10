@@ -3,30 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using TMPro;
+using UnityEngine.UI;
 
 public class puzzleInteraction : MonoBehaviour
 {
     public Camera mainCam;
     public CinemachineVirtualCamera CoreTableCam;
+    public GameState gs;
 
     public GameObject[] CorePieceLocations;
+    public GameObject[] OriginalCorePieceLocations;
+    //public bool[] CurrentTableLocations = { false, false, false, false };
+    //public bool[] CurrentGroundLocations = { true, true, true, true };
+    private string[] CurrentTableLocations = { "Empty", "Empty", "Empty", "Empty" };
+    private string[] CurrentGroundLocations = { "Yellow", "Orange", "Blue", "Red" };
     public int index = 0;
+    public int index2 = 0;
 
-    public TextMeshProUGUI PasswordLetter1;
-    public TextMeshProUGUI PasswordLetter2;
-    public TextMeshProUGUI PasswordLetter3;
-    public TextMeshProUGUI PasswordLetter4;
+    public Text PasswordLetter1;
+    public Text PasswordLetter2;
+    public Text PasswordLetter3;
+    public Text PasswordLetter4;
+
+    public Canvas room1ComputerScreen;
+
+    public GameObject room1Computer;
+    public Material room1SolvedBackground;
+
+    public Material[] computerMats;
 
     public bool correctPassword = false;
 
-    public string password = "mine";
+    public string password = "MINE";
 
     public string Guessedpassword;
+
+    private void Awake()
+    {
+        computerMats = room1Computer.GetComponent<Renderer>().sharedMaterials;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        PasswordLetter1.GetComponentInParent<InputField>().onValidateInput +=
+         delegate (string s, int i, char c) { return char.ToUpper(c); };
+
+        PasswordLetter2.GetComponentInParent<InputField>().onValidateInput +=
+         delegate (string s, int i, char c) { return char.ToUpper(c); };
+
+        PasswordLetter3.GetComponentInParent<InputField>().onValidateInput +=
+         delegate (string s, int i, char c) { return char.ToUpper(c); };
+
+        PasswordLetter4.GetComponentInParent<InputField>().onValidateInput +=
+         delegate (string s, int i, char c) { return char.ToUpper(c); };
     }
 
     // Update is called once per frame
@@ -36,8 +66,6 @@ public class puzzleInteraction : MonoBehaviour
         {
             ShootRaycast();
         }
-
-        random();
         
     }
 
@@ -48,6 +76,7 @@ public class puzzleInteraction : MonoBehaviour
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+
         if (Physics.Raycast(ray, out hit, 1000f))
         {
             //Can only interact with core pieces if user is on the right camera looking at the table
@@ -57,8 +86,56 @@ public class puzzleInteraction : MonoBehaviour
                 if (hit.transform.gameObject.tag == "BrokenCore")
                 {
                     Debug.Log("Grab Core");
-                    hit.transform.position = CorePieceLocations[index].transform.position;
-                    index++;
+                    for(int i = 0; i < 4; i++)
+                    {
+                        if(CurrentTableLocations[i] == "Empty")
+                        {
+                            hit.transform.position = CorePieceLocations[i].transform.position;
+                            hit.transform.gameObject.tag = "BrokenCoreOnTable";
+                            CurrentTableLocations[i] = hit.transform.gameObject.name;
+                            Debug.Log("ACTIVATED!");
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (CurrentGroundLocations[i] == hit.transform.gameObject.name)
+                        {
+                            CurrentGroundLocations[i] = "Empty";
+                            break;
+                        }
+                    }
+                }
+
+                //Check if you clicked on a core piece
+                else if (hit.transform.gameObject.tag == "BrokenCoreOnTable")
+                {
+                    Debug.Log("Drop Core");
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (CurrentGroundLocations[i] == "Empty")
+                        {
+                            hit.transform.position = OriginalCorePieceLocations[i].transform.position;
+                            hit.transform.gameObject.tag = "BrokenCore";
+                            CurrentGroundLocations[i] = hit.transform.gameObject.name;
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (CurrentTableLocations[i] == hit.transform.gameObject.name)
+                        {
+                            CurrentTableLocations[i] = "Empty";
+                            break;
+                        }
+                    }
+
+                }
+                else
+                {
+                    Debug.Log(hit.transform.gameObject.tag);
                 }
             }
             
@@ -74,47 +151,31 @@ public class puzzleInteraction : MonoBehaviour
     public void SetPasswordGuess()
     {
 
-        Guessedpassword = (PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text).ToString();
+        Guessedpassword = PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text;
     }
 
 
     // Attached to button on computer screen. On Click Event.
     public void CheckPasswordRoom1()
     {
-        
         if (correctPassword == false)
         {
-            
-
-
             if (Guessedpassword == password)
             {
                 // The correct password was entered on room1 computer.
                 Debug.Log("Correct Password");
                 correctPassword = true;
+
+                room1ComputerScreen.gameObject.SetActive(false);
+                computerMats[2] = room1SolvedBackground;
+                room1Computer.GetComponent<Renderer>().sharedMaterials = computerMats;
+
+                gs.SetRoom1PasswordPuzzle(true);
             }
             else
             {
                 Debug.Log("Incorrect Password");
-                Debug.Log(PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text);
-            }
-        }
-    }
-
-    public void random()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Guessedpassword = (PasswordLetter1.text + PasswordLetter2.text + PasswordLetter3.text + PasswordLetter4.text).ToString();
-            if (Guessedpassword == password)
-            {
-                // The correct password was entered on room1 computer.
-                Debug.Log("Correct Password");
-                correctPassword = true;
-            }
-            else
-            {
-                Debug.Log("Test");
+                Debug.Log(Guessedpassword);
             }
         }
     }

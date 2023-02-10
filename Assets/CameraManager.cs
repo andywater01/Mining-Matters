@@ -8,6 +8,7 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera Room1_Main;
     public CinemachineVirtualCamera Room1_Computer;
     public CinemachineVirtualCamera Room1_BrokenCoreShackTable;
+    public CinemachineVirtualCamera Room1_Geo_Poster;
     public Camera mainCam;
 
     // Update is called once per frame
@@ -26,8 +27,17 @@ public class CameraManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Room1_Main.Priority = 1;
-            Room1_Computer.Priority = 0;
+            if(Room1_Computer.Priority == 1)
+            {
+                Room1_Main.Priority = 1;
+                Room1_Computer.Priority = 0;
+            }
+
+            else if(Room1_Geo_Poster.Priority == 1)
+            {
+                Room1_Geo_Poster.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 1;
+            }
             
         }
 
@@ -55,6 +65,7 @@ public class CameraManager : MonoBehaviour
                 Room1_Main.Priority = 0;
                 Room1_BrokenCoreShackTable.Priority = 0;
                 Room1_Computer.Priority = 1;
+                Room1_Geo_Poster.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "Room1_BrokenCoreTable")
@@ -62,6 +73,15 @@ public class CameraManager : MonoBehaviour
                 Room1_Main.Priority = 0;
                 Room1_BrokenCoreShackTable.Priority = 1;
                 Room1_Computer.Priority = 0;
+                Room1_Geo_Poster.Priority = 0;
+            }
+
+            else if(Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_Geo_Poster")
+            {
+                Room1_Main.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 0;
+                Room1_Computer.Priority = 0;
+                Room1_Geo_Poster.Priority = 1;
             }
 
 

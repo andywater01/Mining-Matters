@@ -9,6 +9,12 @@ public class CameraMovement : MonoBehaviour
     public Vector3 deltaMove;
     public float speed = 1;
 
+    public float clampXMin;
+    public float clampXMax;
+
+    public float clampYMin;
+    public float clampYMax;
+
     void Start()
     {
         
@@ -21,8 +27,8 @@ public class CameraMovement : MonoBehaviour
             turn.x += Input.GetAxis("Mouse X") * sensitivity;
             turn.y += Input.GetAxis("Mouse Y") * sensitivity;
 
-            turn.x = Mathf.Clamp(turn.x, -60f, 60f);
-            turn.y = Mathf.Clamp(turn.y, -40f, 30f);
+            turn.x = Mathf.Clamp(turn.x, clampXMin, clampXMax);
+            turn.y = Mathf.Clamp(turn.y, clampYMin, clampYMax);
 
             transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
         }
