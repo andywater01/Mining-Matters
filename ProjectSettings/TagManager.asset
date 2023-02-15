@@ -13,6 +13,8 @@ TagManager:
   - Room1_CrossSectionPoster
   - Button
   - CoreBoxDeskSpace
+  - Sprayer
+  - LockNumber
   layers:
   - Default
   - TransparentFX
