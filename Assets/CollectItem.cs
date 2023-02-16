@@ -17,8 +17,12 @@ public class CollectItem : MonoBehaviour
 
     public Sprite itemImage;
 
+    //Adding the audio source and a toggle to avoid playback
+    //AudioSource audioSource;
+    //private bool checkSoundToggle = true;
     
-    
+
+
     //If Mouse is over this gameobject
     public void OnMouseOver()
     {
@@ -30,6 +34,12 @@ public class CollectItem : MonoBehaviour
         }
     }
 
+    //Start Method simply for audio init 
+    public void Start()
+    {
+        //Init audio source 
+        //audioSource = GetComponent<AudioSource>();
+    }
 
     public void AddToInventory()
     {
@@ -60,6 +70,14 @@ public class CollectItem : MonoBehaviour
                         break;
                     }
                 }
+
+                //Plays audio for putting on the PPE Boots
+                //if(gs.GetPPEState() == true && checkSoundToggle == true)
+                //{
+                    //audioSource.Play();
+                    //checkSoundToggle = false; //ensures the sound doesn't repeat
+
+                //}
             }
 
             //Check if you collect the sprayer
