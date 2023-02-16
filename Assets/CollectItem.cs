@@ -16,6 +16,8 @@ public class CollectItem : MonoBehaviour
    
 
     public Sprite itemImage;
+
+    
     
     //If Mouse is over this gameobject
     public void OnMouseOver()
@@ -24,8 +26,7 @@ public class CollectItem : MonoBehaviour
         {
             ShootRaycast();
             
-            TopText.text = (Message);
-            Destroy(this.gameObject);
+           
         }
     }
 
@@ -44,7 +45,7 @@ public class CollectItem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 1000f))
         {
-            //Check if you clicked on the Room1 Computer. If you did, switch camera views
+            //Check if you collect the PPE Boots
             if (hit.transform.gameObject.tag == "PPE_Boots")
             {
                 gs.SetPPEState(true);
@@ -54,12 +55,31 @@ public class CollectItem : MonoBehaviour
                     {
                         Inventory[i].sprite = itemImage;
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);
                         break;
                     }
                 }
             }
 
-            
+            //Check if you collect the sprayer
+            else if (hit.transform.gameObject.tag == "Sprayer" && gs.GetIsSprayerUnlocked() == true)
+            {
+                gs.SetSprayer(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);
+                        break;
+                    }
+                }
+            }
+
+
 
 
         }

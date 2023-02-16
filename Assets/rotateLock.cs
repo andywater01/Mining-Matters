@@ -12,6 +12,9 @@ public class rotateLock : MonoBehaviour
     public int number4 = 0;
     public int number5 = 0;
     public int number6 = 0;
+    public GameState gs;
+
+    public GameObject Lock;
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +36,18 @@ public class rotateLock : MonoBehaviour
         }
 
         //checks if code is correct
-        if (number1.ToString() + number2.ToString() + number3.ToString() + number4.ToString() + number5.ToString() + number6.ToString() == "421243")
+        if (number1.ToString() + number2.ToString() + number3.ToString() + number4.ToString() + number5.ToString() + number6.ToString() == "421243" && gs.GetIsSprayerUnlocked() == false)
         {
             Debug.Log("Password Correct");
+            Lock.gameObject.GetComponent<Animation>().Play(animation: "Unlock");
+            gs.SetIsSprayerUnlocked(true);
+            
         }
 
 
     }
 
+    
 
 
     //Checks if you click on lock number
@@ -56,7 +63,7 @@ public class rotateLock : MonoBehaviour
             if (hit.transform.gameObject.name == "Number1")
             {
                 Quaternion initialRot = hit.transform.localRotation;
-                hit.transform.Rotate(new Vector3(0, 0, -7.5f), Space.Self);
+                hit.transform.Rotate(new Vector3(0, 0, -45f), Space.Self);
                 //hit.transform.localRotation = initialRot * Quaternion.Euler(hit.transform.localRotation.x, hit.transform.localRotation.y, hit.transform.localRotation.z - 45.0f);
                 //Debug.Log(hit.transform.localRotation.z.ToString());
                 number1++;
@@ -69,7 +76,7 @@ public class rotateLock : MonoBehaviour
             else if (hit.transform.gameObject.name == "Number2")
             {
                 Quaternion initialRot = hit.transform.localRotation;
-                hit.transform.Rotate(new Vector3(0, 0, -7.5f), Space.Self);
+                hit.transform.Rotate(new Vector3(0, 0, -45f), Space.Self);
                 //hit.transform.localRotation = initialRot * Quaternion.Euler(hit.transform.localRotation.x, hit.transform.localRotation.y, hit.transform.localRotation.z - 45.0f);
                 //Debug.Log(hit.transform.localRotation.z.ToString());
                 number2++;
@@ -82,7 +89,7 @@ public class rotateLock : MonoBehaviour
             else if (hit.transform.gameObject.name == "Number3")
             {
                 Quaternion initialRot = hit.transform.localRotation;
-                hit.transform.Rotate(new Vector3(0, 0, -7.5f), Space.Self);
+                hit.transform.Rotate(new Vector3(0, 0, -45f), Space.Self);
                 //hit.transform.localRotation = initialRot * Quaternion.Euler(hit.transform.localRotation.x, hit.transform.localRotation.y, hit.transform.localRotation.z - 45.0f);
                 //Debug.Log(hit.transform.localRotation.z.ToString());
                 number3++;
@@ -95,7 +102,7 @@ public class rotateLock : MonoBehaviour
             else if (hit.transform.gameObject.name == "Number4")
             {
                 Quaternion initialRot = hit.transform.localRotation;
-                hit.transform.Rotate(new Vector3(0, 0, -7.5f), Space.Self);
+                hit.transform.Rotate(new Vector3(0, 0, -45f), Space.Self);
                 //hit.transform.localRotation = initialRot * Quaternion.Euler(hit.transform.localRotation.x, hit.transform.localRotation.y, hit.transform.localRotation.z - 45.0f);
                 //Debug.Log(hit.transform.localRotation.z.ToString());
                 number4++;
@@ -108,7 +115,7 @@ public class rotateLock : MonoBehaviour
             else if (hit.transform.gameObject.name == "Number5")
             {
                 Quaternion initialRot = hit.transform.localRotation;
-                hit.transform.Rotate(new Vector3(0, 0, -7.5f), Space.Self);
+                hit.transform.Rotate(new Vector3(0, 0, -45f), Space.Self);
                 //hit.transform.localRotation = initialRot * Quaternion.Euler(hit.transform.localRotation.x, hit.transform.localRotation.y, hit.transform.localRotation.z - 45.0f);
                 //Debug.Log(hit.transform.localRotation.z.ToString());
                 number5++;
@@ -121,7 +128,7 @@ public class rotateLock : MonoBehaviour
             else if (hit.transform.gameObject.name == "Number6")
             {
                 Quaternion initialRot = hit.transform.localRotation;
-                hit.transform.Rotate(new Vector3(0, 0, -7.5f), Space.Self);
+                hit.transform.Rotate(new Vector3(0, 0, -45f), Space.Self);
                 //hit.transform.localRotation = initialRot * Quaternion.Euler(hit.transform.localRotation.x, hit.transform.localRotation.y, hit.transform.localRotation.z - 45.0f);
                 //Debug.Log(hit.transform.localRotation.z.ToString());
                 number6++;

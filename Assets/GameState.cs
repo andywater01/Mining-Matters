@@ -8,6 +8,9 @@ public class GameState : MonoBehaviour
     private bool hasPPEBoots = false;
     private bool completeRoom1PasswordPuzzle = false;
 
+    public bool isSprayerUnlocked = false;
+    private bool hasSprayer = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -44,6 +47,32 @@ public class GameState : MonoBehaviour
         Debug.Log("WORKED!!");
     }
 
+
+
+    public bool GetIsSprayerUnlocked()
+    {
+        return isSprayerUnlocked;
+    }
+
+    public void SetIsSprayerUnlocked(bool sp)
+    {
+        isSprayerUnlocked = sp;
+
+        Debug.Log("WORKED!!");
+    }
+
+
+    public bool GetSprayer()
+    {
+        return hasSprayer;
+    }
+
+    public void SetSprayer(bool sp)
+    {
+        hasSprayer = sp;
+
+        Debug.Log("WORKED!!");
+    }
 
 
 }
