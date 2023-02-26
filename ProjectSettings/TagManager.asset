@@ -15,6 +15,7 @@ TagManager:
   - CoreBoxDeskSpace
   - Sprayer
   - LockNumber
+  - HandLens
   layers:
   - Default
   - TransparentFX

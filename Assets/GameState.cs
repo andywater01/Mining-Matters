@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
 
     public bool isSprayerUnlocked = false;
     private bool hasSprayer = false;
+    private bool isLensUnlocked = false;
 
     //Check Mouse Over State
     public bool GetMouseOver()
@@ -58,7 +59,7 @@ public class GameState : MonoBehaviour
     {
         isSprayerUnlocked = sp;
 
-        Debug.Log("WORKED!!");
+        
     }
 
 
@@ -71,8 +72,18 @@ public class GameState : MonoBehaviour
     {
         hasSprayer = sp;
 
-        Debug.Log("WORKED!!");
+        
     }
 
+
+    public bool GetIsLensUnlocked()
+    {
+        return isLensUnlocked;
+    }
+
+    public void SetIsLensUnlocked(bool sp)
+    {
+        isLensUnlocked = sp;
+    }
 
 }

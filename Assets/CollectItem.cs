@@ -97,6 +97,23 @@ public class CollectItem : MonoBehaviour
                 }
             }
 
+            //Check if you collect the Hand Lens
+            else if (hit.transform.gameObject.tag == "HandLens")
+            {
+                gs.SetIsLensUnlocked(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);
+                        break;
+                    }
+                }
+            }
+
 
 
 

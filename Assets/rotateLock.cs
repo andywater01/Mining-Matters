@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class rotateLock : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class rotateLock : MonoBehaviour
     public GameState gs;
 
     public GameObject Lock;
+    public TextMeshProUGUI topText;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class rotateLock : MonoBehaviour
         {
             Debug.Log("Password Correct");
             Lock.gameObject.GetComponent<Animation>().Play(animation: "Unlock");
+            topText.text = "You have unlocked the sprayer. Click on it to add it to your inventory";
             gs.SetIsSprayerUnlocked(true);
             
         }
