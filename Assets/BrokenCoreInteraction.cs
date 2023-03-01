@@ -17,7 +17,7 @@ public class BrokenCoreInteraction : MonoBehaviour
     //public bool[] CurrentTableLocations = { false, false, false, false };
     //public bool[] CurrentGroundLocations = { true, true, true, true };
     private string[] CurrentTableLocations = { "Empty", "Empty", "Empty", "Empty" };
-    private string[] CurrentGroundLocations = { "Yellow", "Orange", "Blue", "Red" };
+    private string[] CurrentGroundLocations = { "Orange", "Red", "Yellow", "Blue" };
     public int index = 0;
     public int index2 = 0;
 
@@ -38,6 +38,11 @@ public class BrokenCoreInteraction : MonoBehaviour
     public string password = "MINE";
 
     public string Guessedpassword;
+
+
+    public GameObject[] brokenCores;
+    public Material[] solvedMaterials;
+
 
     private void Awake()
     {
@@ -66,6 +71,16 @@ public class BrokenCoreInteraction : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             ShootRaycast();
+        }
+
+
+        if (CurrentTableLocations[0] == "Yellow" && CurrentTableLocations[1] == "Orange" && CurrentTableLocations[2] == "Blue" && CurrentTableLocations[3] == "Red")
+        {
+            Debug.Log("Correct Broken Core Order is on Table!");
+            for (int i = 0; i < brokenCores.Length; i++)
+            {
+                brokenCores[i].GetComponent<Renderer>().material = solvedMaterials[i];
+            }
         }
         
     }
