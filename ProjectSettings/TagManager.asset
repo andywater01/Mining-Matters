@@ -16,11 +16,13 @@ TagManager:
   - Sprayer
   - LockNumber
   - HandLens
+  - Water
+  - InspectCore
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Core
   - Water
   - UI
   - 

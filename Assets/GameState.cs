@@ -12,6 +12,8 @@ public class GameState : MonoBehaviour
     private bool hasSprayer = false;
     private bool isLensUnlocked = false;
 
+    private bool HoldingWetCore = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -84,6 +86,17 @@ public class GameState : MonoBehaviour
     public void SetIsLensUnlocked(bool sp)
     {
         isLensUnlocked = sp;
+    }
+
+
+    public bool GetIsHoldingWetCore()
+    {
+        return HoldingWetCore;
+    }
+
+    public void SetIsHoldingWetCore(bool wc)
+    {
+        HoldingWetCore = wc;
     }
 
 }
