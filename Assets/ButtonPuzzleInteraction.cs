@@ -6,12 +6,23 @@ public class ButtonPuzzleInteraction : MonoBehaviour
 {
     public Camera mainCam;
 
+    public AudioSource source;
+    public AudioClip beep;
+    public AudioClip drill;
+    public AudioClip honk;
+    public AudioClip clang;
 
+    private List<AudioClip> solution = new List<AudioClip>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        solution.Add(clang);
+        solution.Add(beep);
+        solution.Add(drill);
+        solution.Add(beep);
+        solution.Add(clang);
+        solution.Add(honk);
     }
 
     // Update is called once per frame
@@ -22,7 +33,6 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             ShootRaycast();
         }
     }
-
 
 
 
@@ -39,13 +49,64 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             {
                 //play button click animation
                 hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
+
+                StartCoroutine(playAudioSequentially());
             }
+            else if(hit.transform.gameObject.tag == "Button1")
+            {
+                //play button click animation
+                hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
 
+                source.PlayOneShot(drill, 1.0f);
+            }
+            else if (hit.transform.gameObject.tag == "Button2")
+            {
+                //play button click animation
+                hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
 
+                source.PlayOneShot(beep, 1.0f);
+            }
+            else if (hit.transform.gameObject.tag == "Button3")
+            {
+                //play button click animation
+                hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
 
+                source.PlayOneShot(honk, 1.0f);
+            }
+            else if (hit.transform.gameObject.tag == "Button4")
+            {
+                //play button click animation
+                hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
 
+                source.PlayOneShot(clang, 1.0f);
+            }
 
         }
 
+    }
+
+
+    IEnumerator playAudioSequentially()
+    {
+        yield return null;
+
+        //1.Loop through each AudioClip
+        for (int i = 0; i < solution.Count; i++)
+        {
+            //2.Assign current AudioClip to audiosource
+            source.clip = solution[i];
+
+            //3.Play Audio
+            source.Play();
+
+            //4.Wait for it to finish playing
+            while (source.isPlaying)
+            {
+                yield return new WaitForSeconds(0.5f);
+                //yield return null;
+            }
+
+            //5. Go back to #2 and play the next audio in the adClips array
+        }
     }
 }
