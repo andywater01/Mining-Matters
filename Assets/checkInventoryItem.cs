@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Cinemachine;
+using TMPro;
 
 public class checkInventoryItem : MonoBehaviour
 {
     public Camera mainCam;
     private GameObject buttonPressed;
     public bool holdingSomething = false;
+    public GameState gs;
+    public TextMeshProUGUI topText;
 
     //Hand Lens Variables
     public GameObject HandLens;
@@ -20,7 +24,10 @@ public class checkInventoryItem : MonoBehaviour
     public bool isSprayBottleActive = false;
     private GameObject activeSprayBottle;
 
+    //CorePieces2 Variables
+    public GameObject[] core2_pieces;
 
+    public CinemachineVirtualCamera VC_brokenCoreTable;
 
 
 
@@ -29,41 +36,102 @@ public class checkInventoryItem : MonoBehaviour
         buttonPressed = EventSystem.current.currentSelectedGameObject;
         Debug.Log(buttonPressed.name.ToString());
 
-        if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "HandLens")
+        if (buttonPressed.GetComponent<Image>().sprite != null)
         {
-            
-            if (isHandLensActive == false && holdingSomething == false)
-            {               
-                activeHandLens = Instantiate(HandLens, Input.mousePosition, Quaternion.identity);                  
-                isHandLensActive = true;
-                holdingSomething = true;
-            }
-            else
+            if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "HandLens")
             {
-                Destroy(activeHandLens.gameObject);
-                isHandLensActive = false;
-                holdingSomething = false;
+
+                if (isHandLensActive == false && holdingSomething == false)
+                {
+                    activeHandLens = Instantiate(HandLens, Input.mousePosition, Quaternion.identity);
+                    isHandLensActive = true;
+                    holdingSomething = true;
+                    topText.text = ("Can be used to get a closer look at items");
+                }
+                else
+                {
+                    Destroy(activeHandLens.gameObject);
+                    isHandLensActive = false;
+                    holdingSomething = false;
+                    topText.text = ("Hand Lens is Back in Inventory");
+                }
+            }
+
+
+            else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "spraybottle")
+            {
+                if (isSprayBottleActive == false && holdingSomething == false)
+                {
+                    activeSprayBottle = Instantiate(SprayBottle, Input.mousePosition, Quaternion.identity);
+                    isSprayBottleActive = true;
+                    holdingSomething = true;
+                    topText.text = ("Click to Spray Water");
+                }
+                else
+                {
+                    Destroy(activeSprayBottle.gameObject);
+                    isSprayBottleActive = false;
+                    holdingSomething = false;
+                    topText.text = ("Spray Bottle is Back in Inventory");
+                }
+            }
+
+            else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "InspectedCore")
+            {
+                if (VC_brokenCoreTable.Priority > 0)
+                {
+                    foreach (GameObject core in core2_pieces)
+                    {
+                        core.SetActive(true);
+                        gs.SetSelectedCore2(0);
+                        gs.SetIsHoldingWetCore(false);
+
+                    }
+                    buttonPressed.GetComponent<Image>().sprite = null;
+                    buttonPressed.GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f, 116.0f);
+                    
+                }
+                else
+                {
+                    topText.text = ("You can't use this item here");
+                }
+                
             }
         }
 
-
-        else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "spraybottle")
+       
+        else
         {
-            if (isSprayBottleActive == false && holdingSomething == false)
-            {
-                activeSprayBottle = Instantiate(SprayBottle, Input.mousePosition, Quaternion.identity);
-                isSprayBottleActive = true;
-                holdingSomething = true;
-            }
-            else
-            {
-                Destroy(activeSprayBottle.gameObject);
-                isSprayBottleActive = false;
-                holdingSomething = false;
-            }
+            topText.text = ("You have nothing in this inventory slot.");
         }
-        
+
     }
+
+
+    public void PutAwayButton()
+    {      
+        //Hand Lens       
+        if (isHandLensActive == true && holdingSomething)
+        {
+            Destroy(activeHandLens.gameObject);
+            isHandLensActive = false;
+            holdingSomething = false;
+            topText.text = ("Hand Lens is Back in Inventory");
+        }
+
+        //SprayBottle
+        if (isSprayBottleActive == true && holdingSomething)
+        {
+            Destroy(activeSprayBottle.gameObject);
+            isSprayBottleActive = false;
+            holdingSomething = false;
+            topText.text = ("Spray Bottle is Back in Inventory");
+        }
+
+        
+
+    }
+
 
     private void Update()
     {

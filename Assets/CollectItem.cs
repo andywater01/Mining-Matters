@@ -121,6 +121,15 @@ public class CollectItem : MonoBehaviour
                 Debug.Log(hit.transform.gameObject.GetComponent<Renderer>().material.name);
                 if (hit.transform.gameObject.GetComponent<Renderer>().material.name == ("Sprayed (Instance)"))
                 {
+                    if (hit.transform.gameObject.name == "CorePieceToInspect1")
+                        gs.SetSelectedCore2(1);
+                    else if (hit.transform.gameObject.name == "CorePieceToInspect2")
+                        gs.SetSelectedCore2(2);
+                    else if (hit.transform.gameObject.name == "CorePieceToInspect3")
+                        gs.SetSelectedCore2(3);
+                    else if (hit.transform.gameObject.name == "CorePieceToInspect4")
+                        gs.SetSelectedCore2(4);
+
                     gs.SetIsHoldingWetCore(true);
                     for (int i = 0; i <= Inventory.Length; i++)
                     {

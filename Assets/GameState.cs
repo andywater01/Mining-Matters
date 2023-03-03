@@ -13,6 +13,7 @@ public class GameState : MonoBehaviour
     private bool isLensUnlocked = false;
 
     private bool HoldingWetCore = false;
+    public int Core2_Piece_Selected = 0;
 
     //Check Mouse Over State
     public bool GetMouseOver()
@@ -97,6 +98,16 @@ public class GameState : MonoBehaviour
     public void SetIsHoldingWetCore(bool wc)
     {
         HoldingWetCore = wc;
+    }
+
+    public int GetSelectedCore2()
+    {
+        return Core2_Piece_Selected;
+    }
+
+    public void SetSelectedCore2(int wc)
+    {
+        Core2_Piece_Selected = wc;
     }
 
 }
