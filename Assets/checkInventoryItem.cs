@@ -24,6 +24,12 @@ public class checkInventoryItem : MonoBehaviour
     public bool isSprayBottleActive = false;
     private GameObject activeSprayBottle;
 
+    //Sieve Variables
+    public GameObject Sieve;
+    public bool isSieveActive = false;
+    private GameObject activeSieve;
+    public GameObject SieveInShaker;
+
     //CorePieces2 Variables
     public GameObject[] core2_pieces;
 
@@ -97,6 +103,28 @@ public class checkInventoryItem : MonoBehaviour
                 }
                 
             }
+
+            //Sieve
+            if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "SievesImage")
+            {
+
+                if (isSieveActive == false && holdingSomething == false)
+                {
+                    gs.SetIsHoldingSieve(true);
+                    activeSieve = Instantiate(Sieve, Input.mousePosition, Quaternion.identity);
+                    isSieveActive = true;
+                    holdingSomething = true;
+                    topText.text = ("Sieve can be used to sift and seperate sediment");
+                }
+                else
+                {
+                    gs.SetIsHoldingSieve(false);
+                    Destroy(activeSieve.gameObject);
+                    isSieveActive = false;
+                    holdingSomething = false;
+                    topText.text = ("Sieve is Back in Inventory");
+                }
+            }
         }
 
        
@@ -128,7 +156,13 @@ public class checkInventoryItem : MonoBehaviour
             topText.text = ("Spray Bottle is Back in Inventory");
         }
 
-        
+        if (isSieveActive == true && holdingSomething)
+        {
+            Destroy(activeSieve.gameObject);
+            isSieveActive = false;
+            holdingSomething = false;
+            topText.text = ("Sieve is Back in Inventory");
+        }
 
     }
 
@@ -137,6 +171,19 @@ public class checkInventoryItem : MonoBehaviour
     {
         ItemFollowCam(isHandLensActive, activeHandLens, 0);
         ItemFollowCam(isSprayBottleActive, activeSprayBottle, 100);
+        ItemFollowCam(isSieveActive, activeSieve, 0);
+
+        if (isSieveActive == true)
+        {
+            if (gs.GetIsHoldingSieve() == false)
+            {
+                Destroy(activeSieve.gameObject);
+                isSieveActive = false;
+                topText.text = ("Sieve is in place and ready to sift");
+                gs.SetHasPlacedSieve(true);
+            }
+        }
+        
 
         if (Input.GetMouseButton(0) && isSprayBottleActive)
         {

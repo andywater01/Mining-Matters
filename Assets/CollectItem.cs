@@ -150,6 +150,61 @@ public class CollectItem : MonoBehaviour
                 
             }
 
+            //Inspect Core
+            else if (hit.transform.gameObject.tag == "InspectCore")
+            {
+                gs.SetHasSafetyGlasses(true);
+
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);
+                        break;
+                    }
+                }
+            }
+
+
+            //Check if you collect the Sieve
+            else if (hit.transform.gameObject.tag == "Sieve" && gs.GetHasPlacedSieve() == false)
+            {
+                gs.SetHasSieve(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);                       
+                        break;
+                    }
+                    
+                }
+            }
+
+
+            //Check if you collect the Safety Goggles
+            else if (hit.transform.gameObject.tag == "Safety Glasses")
+            {
+                gs.SetHasSafetyGlasses(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);
+                        break;
+                    }
+
+                }
+            }
 
 
         }

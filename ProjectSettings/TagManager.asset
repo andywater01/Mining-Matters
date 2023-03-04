@@ -22,6 +22,12 @@ TagManager:
   - Button2
   - Button3
   - Button4
+  - SedimentDesk
+  - Beaker
+  - Safety Glasses
+  - SieveShaker
+  - Sieve
+  - SedimentJar
   layers:
   - Default
   - TransparentFX

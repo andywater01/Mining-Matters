@@ -15,6 +15,12 @@ public class GameState : MonoBehaviour
     private bool HoldingWetCore = false;
     public int Core2_Piece_Selected = 0;
 
+    private bool hasSafetyGlasses = false;
+
+    private bool HasSieve = false;
+    private bool isHoldingSieve = false;
+    private bool hasPlacedSieve = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -62,7 +68,7 @@ public class GameState : MonoBehaviour
     {
         isSprayerUnlocked = sp;
 
-        
+
     }
 
 
@@ -75,7 +81,7 @@ public class GameState : MonoBehaviour
     {
         hasSprayer = sp;
 
-        
+
     }
 
 
@@ -110,4 +116,44 @@ public class GameState : MonoBehaviour
         Core2_Piece_Selected = wc;
     }
 
+    public bool GetHasSafetyGlasses()
+    {
+        return hasSafetyGlasses;
+    }
+
+    public void SetHasSafetyGlasses(bool sg)
+    {
+        hasSafetyGlasses = sg;
+    }
+
+
+    public bool GetHasSieve()
+    {
+        return HasSieve;
+    }
+
+    public void SetHasSieve(bool sv)
+    {
+        HasSieve = sv;
+    }
+
+    public bool GetIsHoldingSieve()
+    {
+        return isHoldingSieve;
+    }
+
+    public void SetIsHoldingSieve(bool hs)
+    {
+        isHoldingSieve = hs;
+    }
+
+    public bool GetHasPlacedSieve()
+    {
+        return hasPlacedSieve;
+    }
+
+    public void SetHasPlacedSieve(bool hs)
+    {
+        hasPlacedSieve = hs;
+    }
 }
