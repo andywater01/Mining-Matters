@@ -28,6 +28,8 @@ TagManager:
   - SieveShaker
   - Sieve
   - SedimentJar
+  - Door1
+  - BeakerMoved
   layers:
   - Default
   - TransparentFX

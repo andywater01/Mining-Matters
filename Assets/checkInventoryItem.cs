@@ -56,7 +56,8 @@ public class checkInventoryItem : MonoBehaviour
                 }
                 else
                 {
-                    Destroy(activeHandLens.gameObject);
+                    if (isHandLensActive == true)
+                        Destroy(activeHandLens.gameObject);
                     isHandLensActive = false;
                     holdingSomething = false;
                     topText.text = ("Hand Lens is Back in Inventory");
@@ -181,6 +182,7 @@ public class checkInventoryItem : MonoBehaviour
                 isSieveActive = false;
                 topText.text = ("Sieve is in place and ready to sift");
                 gs.SetHasPlacedSieve(true);
+                holdingSomething = false;
             }
         }
         

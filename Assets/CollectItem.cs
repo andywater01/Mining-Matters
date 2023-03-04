@@ -206,6 +206,11 @@ public class CollectItem : MonoBehaviour
                 }
             }
 
+            else if (hit.transform.gameObject.tag == "Door1")
+            {
+                TopText.text = (Message);
+            }
+
 
         }
 
