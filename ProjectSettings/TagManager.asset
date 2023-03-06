@@ -30,6 +30,7 @@ TagManager:
   - SedimentJar
   - Door1
   - BeakerMoved
+  - Cabinet
   layers:
   - Default
   - TransparentFX

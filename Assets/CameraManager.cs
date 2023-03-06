@@ -12,6 +12,7 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera Room1_CrossSectionPoster;
     public CinemachineVirtualCamera Room1_ButtonTable;
     public CinemachineVirtualCamera Room1_SedimentDesk;
+    public CinemachineVirtualCamera Room1_Cabinet;
     public Camera mainCam;
 
     // Update is called once per frame
@@ -96,6 +97,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CrossSectionPoster.Priority = 0;
                 Room1_ButtonTable.Priority = 0;
                 Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "Room1_BrokenCoreTable")
@@ -107,6 +109,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CrossSectionPoster.Priority = 0;
                 Room1_ButtonTable.Priority = 0;
                 Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 0;
             }
 
             else if(Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_Geo_Poster")
@@ -118,6 +121,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CrossSectionPoster.Priority = 0;
                 Room1_ButtonTable.Priority = 0;
                 Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 0;
             }
 
             else if (Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_CrossSectionPoster")
@@ -129,6 +133,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CrossSectionPoster.Priority = 1;
                 Room1_ButtonTable.Priority = 0;
                 Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "CoreBoxDeskSpace")
@@ -140,6 +145,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CrossSectionPoster.Priority = 0;
                 Room1_ButtonTable.Priority = 1;
                 Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "SedimentDesk")
@@ -151,8 +157,20 @@ public class CameraManager : MonoBehaviour
                 Room1_CrossSectionPoster.Priority = 0;
                 Room1_ButtonTable.Priority = 0;
                 Room1_SedimentDesk.Priority = 1;
+                Room1_Cabinet.Priority = 0;
             }
 
+            else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "Cabinet")
+            {
+                Room1_Main.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 0;
+                Room1_Computer.Priority = 0;
+                Room1_Geo_Poster.Priority = 0;
+                Room1_CrossSectionPoster.Priority = 0;
+                Room1_ButtonTable.Priority = 0;
+                Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 1;
+            }
 
         }
 
