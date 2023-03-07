@@ -31,6 +31,8 @@ TagManager:
   - Door1
   - BeakerMoved
   - Cabinet
+  - CabinetLock
+  - GeoLockNumbers
   layers:
   - Default
   - TransparentFX

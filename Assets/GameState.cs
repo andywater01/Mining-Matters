@@ -21,6 +21,8 @@ public class GameState : MonoBehaviour
     private bool isHoldingSieve = false;
     private bool hasPlacedSieve = false;
 
+    private bool unlockedCabinetLock = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -156,4 +158,16 @@ public class GameState : MonoBehaviour
     {
         hasPlacedSieve = hs;
     }
+
+
+    public bool GetHasUnlockedCabinetLock()
+    {
+        return unlockedCabinetLock;
+    }
+
+    public void SetHasUnlockedCabinetLock(bool cl)
+    {
+        unlockedCabinetLock = cl;
+    }
+
 }
