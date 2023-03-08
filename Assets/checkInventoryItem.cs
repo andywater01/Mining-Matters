@@ -35,6 +35,8 @@ public class checkInventoryItem : MonoBehaviour
 
     public CinemachineVirtualCamera VC_brokenCoreTable;
 
+    public List<GameObject> puzzlePieces = new List<GameObject>();
+
 
 
     public void OnInventoryClick()
@@ -126,14 +128,46 @@ public class checkInventoryItem : MonoBehaviour
                     topText.text = ("Sieve is Back in Inventory");
                 }
             }
+
+            else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "PuzzleBox")
+            {
+
+                if (puzzlePieces.Count > 0)
+                    PuzzlePiece();
+                
+            }
         }
 
-       
+
+        
+
+
+
         else
         {
             topText.text = ("You have nothing in this inventory slot.");
         }
 
+
+
+
+    }
+
+    public void PuzzlePiece()
+    {
+        int piece = (int)Random.Range(0, puzzlePieces.Count - 1);
+        if (puzzlePieces[piece].activeInHierarchy == false)
+        {
+            puzzlePieces[piece].SetActive(true);
+            Debug.Log("The piece # is: " + piece);
+            puzzlePieces.RemoveAt(piece);
+        }
+        else
+        {
+            //PuzzlePiece();
+            Debug.Log("Not acceptable piece location in list");
+        }
+        
     }
 
 

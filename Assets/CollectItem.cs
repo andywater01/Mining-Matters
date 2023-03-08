@@ -211,6 +211,23 @@ public class CollectItem : MonoBehaviour
                 TopText.text = (Message);
             }
 
+            //Check if you collect the Puzzle Box
+            else if (hit.transform.gameObject.tag == "PuzzleBox" && gs.GetHasPuzzleBox() == false)
+            {
+                gs.SetHasPuzzleBox(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        Destroy(this.gameObject);
+                        break;
+                    }
+
+                }
+            }
 
         }
 

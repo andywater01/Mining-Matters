@@ -33,6 +33,7 @@ TagManager:
   - Cabinet
   - CabinetLock
   - GeoLockNumbers
+  - PuzzleBox
   layers:
   - Default
   - TransparentFX

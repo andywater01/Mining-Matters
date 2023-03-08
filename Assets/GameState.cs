@@ -23,6 +23,8 @@ public class GameState : MonoBehaviour
 
     private bool unlockedCabinetLock = false;
 
+    private bool hasPuzzleBox;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -168,6 +170,17 @@ public class GameState : MonoBehaviour
     public void SetHasUnlockedCabinetLock(bool cl)
     {
         unlockedCabinetLock = cl;
+    }
+
+
+    public bool GetHasPuzzleBox()
+    {
+        return hasPuzzleBox;
+    }
+
+    public void SetHasPuzzleBox(bool pb)
+    {
+        hasPuzzleBox = pb;
     }
 
 }
