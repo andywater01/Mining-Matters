@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera Room1_SedimentDesk;
     public CinemachineVirtualCamera Room1_Cabinet;
     public CinemachineVirtualCamera Room1_CabinetLock;
+    public CinemachineVirtualCamera Room1_MiningCycle;
     public Camera mainCam;
 
     // Update is called once per frame
@@ -80,6 +81,12 @@ public class CameraManager : MonoBehaviour
                 Room1_Cabinet.Priority = 1;
             }
 
+            else if (Room1_MiningCycle.Priority == 1)
+            {
+                Room1_MiningCycle.Priority = 0;
+                Room1_Cabinet.Priority = 1;
+            }
+
         }
 
         //Gets reference to gameObject that is clicken on
@@ -112,6 +119,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "Room1_BrokenCoreTable")
@@ -125,6 +133,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if(Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_Geo_Poster")
@@ -138,6 +147,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if (Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_CrossSectionPoster")
@@ -151,6 +161,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "CoreBoxDeskSpace")
@@ -164,6 +175,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "SedimentDesk")
@@ -177,6 +189,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 1;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "Cabinet")
@@ -190,6 +203,7 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 1;
                 Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "CabinetLock" && Room1_Cabinet.Priority == 1)
@@ -203,10 +217,26 @@ public class CameraManager : MonoBehaviour
                 Room1_SedimentDesk.Priority = 0;
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 1;
+                Room1_MiningCycle.Priority = 0;
 
             }
 
-            
+            else if ((hit.transform.gameObject.tag == "PuzzleLocation" || hit.transform.gameObject.tag == "PuzzlePiece") && Room1_Cabinet.Priority == 1)
+            {
+                Room1_Main.Priority = 0;
+                Room1_BrokenCoreShackTable.Priority = 0;
+                Room1_Computer.Priority = 0;
+                Room1_Geo_Poster.Priority = 0;
+                Room1_CrossSectionPoster.Priority = 0;
+                Room1_ButtonTable.Priority = 0;
+                Room1_SedimentDesk.Priority = 0;
+                Room1_Cabinet.Priority = 0;
+                Room1_CabinetLock.Priority = 0;
+                Room1_MiningCycle.Priority = 1;
+
+            }
+
+
         }
 
     }

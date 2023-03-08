@@ -35,9 +35,11 @@ public class checkInventoryItem : MonoBehaviour
 
     public CinemachineVirtualCamera VC_brokenCoreTable;
 
+    //Minging Cycle Puzzle Variables
     public List<GameObject> puzzlePieces = new List<GameObject>();
-
-
+    private bool isHoldingPiece = false;
+    private int PieceIndex = 0;
+    public CinemachineVirtualCamera VC_MiningCycle_VC;
 
     public void OnInventoryClick()
     {
@@ -131,9 +133,18 @@ public class checkInventoryItem : MonoBehaviour
 
             else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "PuzzleBox")
             {
-
-                if (puzzlePieces.Count > 0)
-                    PuzzlePiece();
+                if (isHoldingPiece == false && holdingSomething == false)
+                {
+                    if (puzzlePieces.Count > 0 && puzzlePieces != null)
+                        PuzzlePiece();
+                }
+                else
+                {
+                    puzzlePieces[PieceIndex].SetActive(false);
+                    holdingSomething = false;
+                    isHoldingPiece = false;
+                    topText.text = ("Puzzle Piece back in box");
+                }
                 
             }
         }
@@ -160,13 +171,17 @@ public class checkInventoryItem : MonoBehaviour
         {
             puzzlePieces[piece].SetActive(true);
             Debug.Log("The piece # is: " + piece);
-            puzzlePieces.RemoveAt(piece);
+            //puzzlePieces.RemoveAt(piece);
+            isHoldingPiece = true;
+            holdingSomething = true;
+            PieceIndex = piece;
         }
         else
         {
             //PuzzlePiece();
             Debug.Log("Not acceptable piece location in list");
         }
+        //Debug.Log(puzzlePieces.Count);
         
     }
 
@@ -199,14 +214,24 @@ public class checkInventoryItem : MonoBehaviour
             topText.text = ("Sieve is Back in Inventory");
         }
 
+        if (isHoldingPiece == true && holdingSomething)
+        {
+            puzzlePieces[PieceIndex].SetActive(false);
+            holdingSomething = false;
+            isHoldingPiece = false;
+            topText.text = ("Puzzle Piece back in box");
+        }
+
     }
 
 
     private void Update()
     {
-        ItemFollowCam(isHandLensActive, activeHandLens, 0);
-        ItemFollowCam(isSprayBottleActive, activeSprayBottle, 100);
-        ItemFollowCam(isSieveActive, activeSieve, 0);
+        ItemFollowCam(isHandLensActive, activeHandLens, 0, true, 2.0f);
+        ItemFollowCam(isSprayBottleActive, activeSprayBottle, 100, true, 2.0f);
+        ItemFollowCam(isSieveActive, activeSieve, 0, true, 2.0f);
+        if (puzzlePieces.Count > 0)
+            ItemFollowCam(isHoldingPiece, puzzlePieces[PieceIndex], 0, false, 0.7f);
 
         if (isSieveActive == true)
         {
@@ -231,17 +256,50 @@ public class checkInventoryItem : MonoBehaviour
         }
 
 
+        if (Input.GetMouseButtonDown(0) && VC_MiningCycle_VC.Priority == 1)
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                //Check if you collect the PPE Boots
+                if (hit.transform.gameObject.tag == "PuzzleLocation" && isHoldingPiece == true)
+                {
+                    puzzlePieces[PieceIndex].transform.position = hit.transform.position + new Vector3(0.0f, 0.0f, 0.0f);
+                    puzzlePieces[PieceIndex].GetComponent<BoxCollider>().enabled = true;
+
+                    
+                    puzzlePieces.RemoveAt(PieceIndex);
+                    isHoldingPiece = false;
+                    holdingSomething = false;
+                    Debug.Log("Piece Index: " + PieceIndex);
+                }
+
+                else if (hit.transform.gameObject.tag == "PuzzlePiece" && isHoldingPiece == false)
+                {
+                    puzzlePieces.Add(hit.transform.gameObject);
+                    hit.transform.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    hit.transform.gameObject.SetActive(false);
+                    isHoldingPiece = false;
+                    holdingSomething = false;
+                }
+            }
+        }
+
+        
     }
 
 
-    public void ItemFollowCam(bool isItemActive, GameObject activeItem, int yoffset)
+    public void ItemFollowCam(bool isItemActive, GameObject activeItem, int yoffset, bool followRot, float distance)
     {
         if (isItemActive == true)
         {
             var mousePos = Input.mousePosition - new Vector3(0, yoffset, 0);
             var camRot = mainCam.transform.localRotation;
-            activeItem.transform.position = mainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 2.0f));
-            activeItem.transform.localRotation = mainCam.transform.localRotation;
+            activeItem.transform.position = mainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, distance));
+            if (followRot == true)
+                activeItem.transform.localRotation = mainCam.transform.localRotation;
         }
     }
 
