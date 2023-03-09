@@ -25,6 +25,11 @@ public class GameState : MonoBehaviour
 
     private bool hasPuzzleBox;
 
+    private bool PlacedAllPieces = false;
+    private bool isJigSawDone = false;
+
+    private bool hasDustMask = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -181,6 +186,37 @@ public class GameState : MonoBehaviour
     public void SetHasPuzzleBox(bool pb)
     {
         hasPuzzleBox = pb;
+    }
+
+    public bool GetPlacedAllPieces()
+    {
+        return PlacedAllPieces;
+    }
+
+    public void SetPlacedAllPieces(bool ap)
+    {
+        PlacedAllPieces = ap;
+    }
+
+    public bool GetJigSawDone()
+    {
+        return isJigSawDone;
+    }
+
+    public void SetJigSawDone(bool ap)
+    {
+        isJigSawDone = ap;
+    }
+
+
+    public bool GetHasDustMask()
+    {
+        return hasDustMask;
+    }
+
+    public void SetHasDustMask(bool dm)
+    {
+        hasDustMask = dm;
     }
 
 }

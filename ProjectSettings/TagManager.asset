@@ -36,6 +36,7 @@ TagManager:
   - PuzzleBox
   - PuzzleLocation
   - PuzzlePiece
+  - DustMask
   layers:
   - Default
   - TransparentFX

@@ -1,56 +1,8 @@
 fileFormatVersion: 2
-guid: 791fa0e579f9b8641a3d75f1f22a922a
+guid: c3cea77413f6bb94aaa83c2cd96373aa
 ModelImporter:
   serializedVersion: 21100
-  internalIDToNameTable:
-  - first:
-      74: 7984546493644642092
-    second: Cube.025|BottomDrawerOpen
-  - first:
-      74: 6153116752297514771
-    second: Cube.025|LDoorOpen
-  - first:
-      74: -2538740211597016214
-    second: Cube.025|R_DoorOpen
-  - first:
-      74: -2302680399740709958
-    second: Cube.025|TopDrawerOpen
-  - first:
-      74: -2167661830345517112
-    second: Cube.029|BottomDrawerOpen
-  - first:
-      74: -1187879031319934169
-    second: Cube.029|LDoorOpen
-  - first:
-      74: 1523124132570102809
-    second: Cube.029|R_DoorOpen
-  - first:
-      74: 342435280071039285
-    second: Cube.029|TopDrawerOpen
-  - first:
-      74: -7892978903486605454
-    second: Cube.030|BottomDrawerOpen
-  - first:
-      74: -2935663419188962752
-    second: Cube.030|LDoorOpen
-  - first:
-      74: -1993163759124229589
-    second: Cube.030|R_DoorOpen
-  - first:
-      74: -8465430869662624707
-    second: Cube.030|TopDrawerOpen
-  - first:
-      74: -7988506408961088151
-    second: Cube.032|BottomDrawerOpen
-  - first:
-      74: -7084144370602971847
-    second: Cube.032|LDoorOpen
-  - first:
-      74: 7560613825482971799
-    second: Cube.032|R_DoorOpen
-  - first:
-      74: 1101744030316442071
-    second: Cube.032|TopDrawerOpen
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -136,11 +88,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
 
 public class RotateCabinetLock : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class RotateCabinetLock : MonoBehaviour
 
     private bool hasClicked = false;
     public TextMeshProUGUI toptext;
+
+    public GameObject Cabinet;
+
+    public CinemachineVirtualCamera Cabinet_VC;
+    public CinemachineVirtualCamera CabinetLock_VC;
 
     // Update is called once per frame
     void Update()
@@ -49,8 +55,14 @@ public class RotateCabinetLock : MonoBehaviour
                 
                 isLocked = false;
                 toptext.text = ("You unlocked the bottom drawers!");
-                Destroy(Lock);
+                Cabinet.GetComponent<Animation>().Play(animation: "Cube.032|BottomDrawerOpen");
+
+                Cabinet_VC.Priority = 1;
+                CabinetLock_VC.Priority = 0;
+
+                //Destroy(Lock);
                 Debug.Log("CabinetUnLocked");
+                
             }
         }
         

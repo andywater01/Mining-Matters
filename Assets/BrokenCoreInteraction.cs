@@ -43,6 +43,8 @@ public class BrokenCoreInteraction : MonoBehaviour
     public GameObject[] brokenCores;
     public Material[] solvedMaterials;
 
+    private bool puzzleSolved = false;
+
 
     private void Awake()
     {
@@ -73,15 +75,19 @@ public class BrokenCoreInteraction : MonoBehaviour
             ShootRaycast();
         }
 
-
-        if (CurrentTableLocations[0] == "Yellow" && CurrentTableLocations[1] == "Orange" && CurrentTableLocations[2] == "Blue" && CurrentTableLocations[3] == "Red")
+        if (puzzleSolved == false)
         {
-            Debug.Log("Correct Broken Core Order is on Table!");
-            for (int i = 0; i < brokenCores.Length; i++)
+            if (CurrentTableLocations[0] == "Yellow" && CurrentTableLocations[1] == "Orange" && CurrentTableLocations[2] == "Blue" && CurrentTableLocations[3] == "Red")
             {
-                brokenCores[i].GetComponent<Renderer>().material = solvedMaterials[i];
+                Debug.Log("Correct Broken Core Order is on Table!");
+                for (int i = 0; i < brokenCores.Length; i++)
+                {
+                    brokenCores[i].GetComponent<Renderer>().material = solvedMaterials[i];
+                }
+                puzzleSolved = true;
             }
         }
+        
         
     }
 

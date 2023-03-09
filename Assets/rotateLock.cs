@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class rotateLock : MonoBehaviour
 {
     public Camera mainCam;
@@ -17,6 +18,8 @@ public class rotateLock : MonoBehaviour
 
     public GameObject Lock;
     public TextMeshProUGUI topText;
+
+
 
     // Start is called before the first frame update
     void Start()

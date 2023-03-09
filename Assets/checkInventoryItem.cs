@@ -40,6 +40,7 @@ public class checkInventoryItem : MonoBehaviour
     private bool isHoldingPiece = false;
     private int PieceIndex = 0;
     public CinemachineVirtualCamera VC_MiningCycle_VC;
+    public int piecesPlaced = 0;
 
     public void OnInventoryClick()
     {
@@ -256,7 +257,7 @@ public class checkInventoryItem : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0) && VC_MiningCycle_VC.Priority == 1)
+        if (Input.GetMouseButtonDown(0) && VC_MiningCycle_VC.Priority == 1 && gs.GetJigSawDone() == false)
         {
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -274,6 +275,12 @@ public class checkInventoryItem : MonoBehaviour
                     isHoldingPiece = false;
                     holdingSomething = false;
                     Debug.Log("Piece Index: " + PieceIndex);
+                    piecesPlaced++;
+
+                    if (piecesPlaced == 49)
+                    {
+                        gs.SetPlacedAllPieces(true);
+                    }
                 }
 
                 else if (hit.transform.gameObject.tag == "PuzzlePiece" && isHoldingPiece == false)
@@ -283,9 +290,18 @@ public class checkInventoryItem : MonoBehaviour
                     hit.transform.gameObject.SetActive(false);
                     isHoldingPiece = false;
                     holdingSomething = false;
+                    piecesPlaced--;
+
+                    if (piecesPlaced < 49)
+                    {
+                        gs.SetPlacedAllPieces(false);
+                    }
                 }
             }
         }
+
+        
+
 
         
     }
