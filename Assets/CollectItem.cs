@@ -136,11 +136,12 @@ public class CollectItem : MonoBehaviour
                     else if (hit.transform.gameObject.name == "CorePieceToInspect4")
                         gs.SetSelectedCore2(4);
 
-                    gs.SetIsHoldingWetCore(true);
+                    
                     for (int i = 0; i <= Inventory.Length; i++)
                     {
-                        if (Inventory[i].sprite == null)
+                        if (Inventory[i].sprite == null && gs.GetIsHoldingWetCore() == false)
                         {
+                            gs.SetIsHoldingWetCore(true);
                             Inventory[i].sprite = itemImage;
                             Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                             TopText.text = (Message);
@@ -160,24 +161,24 @@ public class CollectItem : MonoBehaviour
             }
 
             //Inspect Core
-            else if (hit.transform.gameObject.tag == "InspectCore")
-            {
-                gs.SetHasSafetyGlasses(true);
+            //else if (hit.transform.gameObject.tag == "InspectCore")
+            //{
+                
 
-                for (int i = 0; i <= Inventory.Length; i++)
-                {
-                    if (Inventory[i].sprite == null)
-                    {
-                        Inventory[i].sprite = itemImage;
-                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-                        TopText.text = (Message);
-                        Destroy(this.gameObject);
-                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
-                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Dry Core Piece";
-                        break;
-                    }
-                }
-            }
+            //    for (int i = 0; i <= Inventory.Length; i++)
+            //    {
+            //        if (Inventory[i].sprite == null)
+            //        {
+            //            Inventory[i].sprite = itemImage;
+            //            Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            //            TopText.text = (Message);
+            //            Destroy(this.gameObject);
+            //            TopText.GetComponent<UAP_BaseElement>().SelectItem();
+            //            Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Dry Core Piece";
+            //            break;
+            //        }
+            //    }
+            //}
 
 
             //Check if you collect the Sieve

@@ -41,6 +41,7 @@ public class checkInventoryItem : MonoBehaviour
     private int PieceIndex = 0;
     public CinemachineVirtualCamera VC_MiningCycle_VC;
     public int piecesPlaced = 0;
+    
 
     public void OnInventoryClick()
     {
@@ -116,7 +117,7 @@ public class checkInventoryItem : MonoBehaviour
             }
 
             //Sieve
-            if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "SievesImage")
+            else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "SievesImage")
             {
 
                 if (isSieveActive == false && holdingSomething == false)
@@ -283,6 +284,7 @@ public class checkInventoryItem : MonoBehaviour
                 {
                     puzzlePieces[PieceIndex].transform.position = hit.transform.position + new Vector3(0.0f, 0.0f, 0.0f);
                     puzzlePieces[PieceIndex].GetComponent<BoxCollider>().enabled = true;
+
 
                     
                     puzzlePieces.RemoveAt(PieceIndex);

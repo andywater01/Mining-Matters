@@ -125,6 +125,7 @@ public class GameState : MonoBehaviour
         Core2_Piece_Selected = wc;
     }
 
+
     public bool GetHasSafetyGlasses()
     {
         return hasSafetyGlasses;
