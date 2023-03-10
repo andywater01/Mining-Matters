@@ -34,11 +34,11 @@ public class CabinetPuzzlePlacement : MonoBehaviour
                     }
                     else
                     {
-                        if (wrongbool == false)
+                        if (wrongbool == false && correctPieces != 0)
                         {
                             Debug.Log("Pieces are not in correct order");
                             correctPieces = 0;
-                            wrongbool = true;
+                            
                             break;
                         }
                         
