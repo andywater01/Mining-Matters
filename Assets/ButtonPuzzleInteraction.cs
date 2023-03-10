@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ButtonPuzzleInteraction : MonoBehaviour
 {
@@ -11,17 +12,18 @@ public class ButtonPuzzleInteraction : MonoBehaviour
     public AudioClip drill;
     public AudioClip honk;
     public AudioClip clang;
+    public TextMeshProUGUI topText;
 
     private List<AudioClip> solution = new List<AudioClip>();
 
     // Start is called before the first frame update
     void Start()
     {
-        solution.Add(clang);
-        solution.Add(beep);
         solution.Add(drill);
+        solution.Add(clang);
         solution.Add(beep);
         solution.Add(clang);
+        solution.Add(drill);
         solution.Add(honk);
     }
 
@@ -49,6 +51,8 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             {
                 //play button click animation
                 hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
+                topText.text = ("You hear a series of sounds");
+                topText.GetComponent<UAP_BaseElement>().SelectItem();
 
                 StartCoroutine(playAudioSequentially());
             }
@@ -56,6 +60,8 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             {
                 //play button click animation
                 hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
+                topText.text = ("You hear a drill sound");
+                topText.GetComponent<UAP_BaseElement>().SelectItem();
 
                 source.PlayOneShot(drill, 1.0f);
             }
@@ -63,6 +69,8 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             {
                 //play button click animation
                 hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
+                topText.text = ("You hear a beep sound");
+                topText.GetComponent<UAP_BaseElement>().SelectItem();
 
                 source.PlayOneShot(beep, 1.0f);
             }
@@ -70,6 +78,8 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             {
                 //play button click animation
                 hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
+                topText.text = ("You hear a honk sound");
+                topText.GetComponent<UAP_BaseElement>().SelectItem();
 
                 source.PlayOneShot(honk, 1.0f);
             }
@@ -77,6 +87,8 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             {
                 //play button click animation
                 hit.transform.gameObject.GetComponent<Animation>().Play(animation: "ButtonPress");
+                topText.text = ("You hear a clang sound");
+                topText.GetComponent<UAP_BaseElement>().SelectItem();
 
                 source.PlayOneShot(clang, 1.0f);
             }

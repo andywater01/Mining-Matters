@@ -67,6 +67,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "PPE Boots";
                         break;
                     }
                 }
@@ -92,6 +94,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Sprayer";
                         break;
                     }
                 }
@@ -109,6 +113,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Hand Lens";
                         break;
                     }
                 }
@@ -139,6 +145,8 @@ public class CollectItem : MonoBehaviour
                             Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                             TopText.text = (Message);
                             this.gameObject.SetActive(false);
+                            TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                            Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Wet Core Piece";
                             break;
                         }
                     }
@@ -146,6 +154,7 @@ public class CollectItem : MonoBehaviour
                 else
                 {
                     TopText.text = ("These cores are too dry. It is hard to tell if its gold or not");
+                    TopText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
                 
             }
@@ -163,6 +172,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Dry Core Piece";
                         break;
                     }
                 }
@@ -180,7 +191,9 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].sprite = itemImage;
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
-                        Destroy(this.gameObject);                       
+                        Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Sieve";
                         break;
                     }
                     
@@ -200,6 +213,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Safety Glasses";
                         break;
                     }
 
@@ -209,6 +224,7 @@ public class CollectItem : MonoBehaviour
             else if (hit.transform.gameObject.tag == "Door1")
             {
                 TopText.text = (Message);
+                TopText.GetComponent<UAP_BaseElement>().SelectItem();
             }
 
             //Check if you collect the Puzzle Box
@@ -223,6 +239,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Box of Puzzle Pieces";
                         break;
                     }
 
@@ -230,6 +248,7 @@ public class CollectItem : MonoBehaviour
             }
 
 
+            //Check if you collect the Dust Mask
             if (hit.transform.gameObject.tag == "DustMask")
             {
                 gs.SetHasDustMask(true);
@@ -241,6 +260,8 @@ public class CollectItem : MonoBehaviour
                         Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         TopText.text = (Message);
                         Destroy(this.gameObject);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Dust Mask";
                         break;
                     }
                 }

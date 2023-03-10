@@ -58,6 +58,7 @@ public class checkInventoryItem : MonoBehaviour
                     isHandLensActive = true;
                     holdingSomething = true;
                     topText.text = ("Can be used to get a closer look at items");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
                 else
                 {
@@ -66,6 +67,7 @@ public class checkInventoryItem : MonoBehaviour
                     isHandLensActive = false;
                     holdingSomething = false;
                     topText.text = ("Hand Lens is Back in Inventory");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
             }
 
@@ -78,6 +80,7 @@ public class checkInventoryItem : MonoBehaviour
                     isSprayBottleActive = true;
                     holdingSomething = true;
                     topText.text = ("Click to Spray Water");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
                 else
                 {
@@ -85,6 +88,7 @@ public class checkInventoryItem : MonoBehaviour
                     isSprayBottleActive = false;
                     holdingSomething = false;
                     topText.text = ("Spray Bottle is Back in Inventory");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
             }
 
@@ -106,6 +110,7 @@ public class checkInventoryItem : MonoBehaviour
                 else
                 {
                     topText.text = ("You can't use this item here");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
                 
             }
@@ -121,6 +126,7 @@ public class checkInventoryItem : MonoBehaviour
                     isSieveActive = true;
                     holdingSomething = true;
                     topText.text = ("Sieve can be used to sift and seperate sediment");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
                 else
                 {
@@ -129,6 +135,7 @@ public class checkInventoryItem : MonoBehaviour
                     isSieveActive = false;
                     holdingSomething = false;
                     topText.text = ("Sieve is Back in Inventory");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
             }
 
@@ -145,6 +152,7 @@ public class checkInventoryItem : MonoBehaviour
                     holdingSomething = false;
                     isHoldingPiece = false;
                     topText.text = ("Puzzle Piece back in box");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
                 }
                 
             }
@@ -158,6 +166,7 @@ public class checkInventoryItem : MonoBehaviour
         else
         {
             topText.text = ("You have nothing in this inventory slot.");
+            topText.GetComponent<UAP_BaseElement>().SelectItem();
         }
 
 
@@ -196,6 +205,7 @@ public class checkInventoryItem : MonoBehaviour
             isHandLensActive = false;
             holdingSomething = false;
             topText.text = ("Hand Lens is Back in Inventory");
+            topText.GetComponent<UAP_BaseElement>().SelectItem();
         }
 
         //SprayBottle
@@ -205,6 +215,7 @@ public class checkInventoryItem : MonoBehaviour
             isSprayBottleActive = false;
             holdingSomething = false;
             topText.text = ("Spray Bottle is Back in Inventory");
+            topText.GetComponent<UAP_BaseElement>().SelectItem();
         }
 
         if (isSieveActive == true && holdingSomething)
@@ -213,6 +224,7 @@ public class checkInventoryItem : MonoBehaviour
             isSieveActive = false;
             holdingSomething = false;
             topText.text = ("Sieve is Back in Inventory");
+            topText.GetComponent<UAP_BaseElement>().SelectItem();
         }
 
         if (isHoldingPiece == true && holdingSomething)
@@ -221,6 +233,7 @@ public class checkInventoryItem : MonoBehaviour
             holdingSomething = false;
             isHoldingPiece = false;
             topText.text = ("Puzzle Piece back in box");
+            topText.GetComponent<UAP_BaseElement>().SelectItem();
         }
 
     }
@@ -241,6 +254,7 @@ public class checkInventoryItem : MonoBehaviour
                 Destroy(activeSieve.gameObject);
                 isSieveActive = false;
                 topText.text = ("Sieve is in place and ready to sift");
+                topText.GetComponent<UAP_BaseElement>().SelectItem();
                 gs.SetHasPlacedSieve(true);
                 holdingSomething = false;
             }
