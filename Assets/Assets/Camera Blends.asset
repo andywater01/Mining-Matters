@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: in_VCMain_VC
+  - m_From: Room1Main_VC
     m_To: Room1Computer_VC
     m_Blend:
       m_Style: 1
@@ -202,6 +202,28 @@ MonoBehaviour:
         m_RotationOrder: 0
   - m_From: Room1MiningCycle_VC
     m_To: Room1Cabinet_VC
+    m_Blend:
+      m_Style: 1
+      m_Time: 2
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: Room1Main_VC
+    m_To: Room2_Main_VC
+    m_Blend:
+      m_Style: 1
+      m_Time: 2
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: Room2_Main_VC
+    m_To: Room1Main_VC
     m_Blend:
       m_Style: 1
       m_Time: 2
