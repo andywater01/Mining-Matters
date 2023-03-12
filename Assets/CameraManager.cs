@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 
 public class CameraManager : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera Room1_MiningCycle;
 
     public CinemachineVirtualCamera Room2_Main;
+    public CinemachineVirtualCamera Room2_DiamondSaw;
     public GameState gs;
+    public TextMeshProUGUI topText;
 
     // Update is called once per frame
     void Update()
@@ -90,6 +93,19 @@ public class CameraManager : MonoBehaviour
                 Room1_Cabinet.Priority = 1;
             }
 
+            else if (Room2_Main.Priority == 1)
+            {
+                Room2_Main.Priority = 0;
+                Room1_Main.Priority = 1;
+                topText.text = ("Heading back to room 1");
+            }
+
+            else if (Room2_DiamondSaw.Priority == 1)
+            {
+                Room2_DiamondSaw.Priority = 0;
+                Room2_Main.Priority = 1;
+            }
+
         }
 
         //Gets reference to gameObject that is clicken on
@@ -124,6 +140,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "Room1_BrokenCoreTable")
@@ -139,6 +156,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if(Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_Geo_Poster")
@@ -154,6 +172,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if (Room1_BrokenCoreShackTable.Priority == 1 && hit.transform.gameObject.tag == "Room1_CrossSectionPoster")
@@ -169,6 +188,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "CoreBoxDeskSpace")
@@ -184,6 +204,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "SedimentDesk")
@@ -199,6 +220,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if (Room1_Main.Priority == 1 && hit.transform.gameObject.tag == "Cabinet")
@@ -214,6 +236,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
             }
 
             else if (hit.transform.gameObject.tag == "CabinetLock" && Room1_Cabinet.Priority == 1)
@@ -229,6 +252,7 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 1;
                 Room1_MiningCycle.Priority = 0;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
 
             }
 
@@ -245,10 +269,46 @@ public class CameraManager : MonoBehaviour
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 1;
                 Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 0;
 
             }
 
-            else if (hit.transform.gameObject.tag == "Door1" && Room1_Main.Priority == 1 && gs.GetHasDustMask() == true && gs.GetHasSafetyGlasses() == true && gs.GetPPEState() == true)
+            else if (hit.transform.gameObject.tag == "Door1" && gs.GetHasDustMask() == true && gs.GetHasSafetyGlasses() == true && gs.GetPPEState() == true)
+            {
+                if (Room1_Main.Priority == 1)
+                {
+                    Room1_Main.Priority = 0;
+                    Room1_BrokenCoreShackTable.Priority = 0;
+                    Room1_Computer.Priority = 0;
+                    Room1_Geo_Poster.Priority = 0;
+                    Room1_CrossSectionPoster.Priority = 0;
+                    Room1_ButtonTable.Priority = 0;
+                    Room1_SedimentDesk.Priority = 0;
+                    Room1_Cabinet.Priority = 0;
+                    Room1_CabinetLock.Priority = 0;
+                    Room1_MiningCycle.Priority = 0;
+                    Room2_Main.Priority = 1;
+                    Room2_DiamondSaw.Priority = 0;
+                }
+                else if (Room2_Main.Priority == 1)
+                {
+                    Room1_Main.Priority = 1;
+                    Room1_BrokenCoreShackTable.Priority = 0;
+                    Room1_Computer.Priority = 0;
+                    Room1_Geo_Poster.Priority = 0;
+                    Room1_CrossSectionPoster.Priority = 0;
+                    Room1_ButtonTable.Priority = 0;
+                    Room1_SedimentDesk.Priority = 0;
+                    Room1_Cabinet.Priority = 0;
+                    Room1_CabinetLock.Priority = 0;
+                    Room1_MiningCycle.Priority = 0;
+                    Room2_Main.Priority = 0;
+                    Room2_DiamondSaw.Priority = 0;
+                }
+                
+            }
+
+            else if (hit.transform.gameObject.tag == "DiamondSaw")
             {
                 Room1_Main.Priority = 0;
                 Room1_BrokenCoreShackTable.Priority = 0;
@@ -260,7 +320,9 @@ public class CameraManager : MonoBehaviour
                 Room1_Cabinet.Priority = 0;
                 Room1_CabinetLock.Priority = 0;
                 Room1_MiningCycle.Priority = 0;
-                Room2_Main.Priority = 1;
+                Room2_Main.Priority = 0;
+                Room2_DiamondSaw.Priority = 1;
+                topText.text = "The diamond saw can be used to cut & inspect cores.";
             }
 
         }

@@ -37,6 +37,9 @@ TagManager:
   - PuzzleLocation
   - PuzzlePiece
   - DustMask
+  - DiamondSaw
+  - BrokenSawBlade
+  - NewSawBlade
   layers:
   - Default
   - TransparentFX

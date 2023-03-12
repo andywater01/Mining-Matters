@@ -221,12 +221,31 @@ public class CollectItem : MonoBehaviour
 
                 }
             }
-
-            else if (hit.transform.gameObject.tag == "Door1")
+            //Switch to room 1 from room 2
+            else if (hit.transform.gameObject.tag == "Door1" && gs.GetCurrentRoom() == 1)
             {
-                TopText.text = (Message);
-                TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                if (gs.GetHasDustMask() == true && gs.GetHasSafetyGlasses() == true && gs.GetPPEState() == true)
+                {
+                    TopText.text = "You have the neccessary items to enter this room.";
+                    TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                    gs.SetCurrentRoom(2);
+                }
+                else
+                {
+                    TopText.text = (Message);
+                    TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                }
+                
             }
+            //Switch from room 2 to room 1
+            else if (hit.transform.gameObject.tag == "Door1" && gs.GetCurrentRoom() == 2)
+            {
+                TopText.text = ("Heading back to room 1");
+                TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                gs.SetCurrentRoom(1);
+
+            }
+
 
             //Check if you collect the Puzzle Box
             else if (hit.transform.gameObject.tag == "PuzzleBox" && gs.GetHasPuzzleBox() == false)
