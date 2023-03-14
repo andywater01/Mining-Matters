@@ -41,7 +41,10 @@ public class checkInventoryItem : MonoBehaviour
     private int PieceIndex = 0;
     public CinemachineVirtualCamera VC_MiningCycle_VC;
     public int piecesPlaced = 0;
-    
+
+    //Plug
+    private bool isHoldingPlug = false;
+    public GameObject plug;
 
     public void OnInventoryClick()
     {
@@ -248,6 +251,9 @@ public class checkInventoryItem : MonoBehaviour
         if (puzzlePieces.Count > 0)
             ItemFollowCam(isHoldingPiece, puzzlePieces[PieceIndex], 0, false, 0.7f);
 
+        ItemFollowCam(isHoldingPlug, plug, 0, true, 2.0f);
+
+
         if (isSieveActive == true)
         {
             if (gs.GetIsHoldingSieve() == false)
@@ -316,10 +322,26 @@ public class checkInventoryItem : MonoBehaviour
             }
         }
 
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                //Check if you collect the PPE Boots
+                if (hit.transform.gameObject.tag == "Plug" && isHoldingPlug == false)
+                {
+                    isHoldingPlug = true;
+                }
+            }
 
-        
+        }
+
+        if (Input.GetMouseButtonUp(0) && isHoldingPlug == true)
+        {
+            isHoldingPlug = false;
+        }
     }
 
 

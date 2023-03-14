@@ -40,6 +40,8 @@ TagManager:
   - DiamondSaw
   - BrokenSawBlade
   - NewSawBlade
+  - FilingCabinet
+  - Plug
   layers:
   - Default
   - TransparentFX
