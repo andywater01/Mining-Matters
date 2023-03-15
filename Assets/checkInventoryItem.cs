@@ -42,9 +42,12 @@ public class checkInventoryItem : MonoBehaviour
     public CinemachineVirtualCamera VC_MiningCycle_VC;
     public int piecesPlaced = 0;
 
-    //Plug
-    private bool isHoldingPlug = false;
-    public GameObject plug;
+    //Saw Blade Variables
+    public GameObject SawBlade;
+    public bool isSawBladeActive = false;
+    private GameObject activeSawBlade;
+
+
 
     public void OnInventoryClick()
     {
@@ -160,6 +163,29 @@ public class checkInventoryItem : MonoBehaviour
                 }
                 
             }
+
+
+            else if (buttonPressed.GetComponent<Image>().sprite.name.ToString() == "SawBlade")
+            {
+                if (isSawBladeActive == false && holdingSomething == false)
+                {
+                    gs.SetIsHoldingSawBlade(true);
+                    activeSawBlade = Instantiate(SawBlade, Input.mousePosition, Quaternion.identity);
+                    isSawBladeActive = true;
+                    holdingSomething = true;
+                    topText.text = ("Fix the Diamond Cutter");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
+                }
+                else
+                {
+                    gs.SetIsHoldingSawBlade(false);
+                    Destroy(activeSawBlade.gameObject);
+                    isSawBladeActive = false;
+                    holdingSomething = false;
+                    topText.text = ("Saw Blade back in inventory");
+                    topText.GetComponent<UAP_BaseElement>().SelectItem();
+                }
+            }
         }
 
 
@@ -240,6 +266,14 @@ public class checkInventoryItem : MonoBehaviour
             topText.GetComponent<UAP_BaseElement>().SelectItem();
         }
 
+        if (isSawBladeActive == true && holdingSomething)
+        {
+            Destroy(activeSawBlade.gameObject);
+            isSawBladeActive = false;
+            holdingSomething = false;
+            topText.text = ("Saw Blade is Back in Inventory");
+            topText.GetComponent<UAP_BaseElement>().SelectItem();
+        }
     }
 
 
@@ -251,7 +285,9 @@ public class checkInventoryItem : MonoBehaviour
         if (puzzlePieces.Count > 0)
             ItemFollowCam(isHoldingPiece, puzzlePieces[PieceIndex], 0, false, 0.7f);
 
-        ItemFollowCam(isHoldingPlug, plug, 0, true, 2.0f);
+        ItemFollowCam(isSawBladeActive, activeSawBlade, 0, true, 2.0f);
+
+
 
 
         if (isSieveActive == true)
@@ -266,7 +302,7 @@ public class checkInventoryItem : MonoBehaviour
                 holdingSomething = false;
             }
         }
-        
+
 
         if (Input.GetMouseButton(0) && isSprayBottleActive)
         {
@@ -292,7 +328,7 @@ public class checkInventoryItem : MonoBehaviour
                     puzzlePieces[PieceIndex].GetComponent<BoxCollider>().enabled = true;
 
 
-                    
+
                     puzzlePieces.RemoveAt(PieceIndex);
                     isHoldingPiece = false;
                     holdingSomething = false;
@@ -322,26 +358,7 @@ public class checkInventoryItem : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 1000f))
-            {
-                //Check if you collect the PPE Boots
-                if (hit.transform.gameObject.tag == "Plug" && isHoldingPlug == false)
-                {
-                    isHoldingPlug = true;
-                }
-            }
-
-        }
-
-        if (Input.GetMouseButtonUp(0) && isHoldingPlug == true)
-        {
-            isHoldingPlug = false;
-        }
     }
 
 

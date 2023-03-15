@@ -42,6 +42,8 @@ TagManager:
   - NewSawBlade
   - FilingCabinet
   - Plug
+  - RockSampleDesk
+  - FilingCabinetLock
   layers:
   - Default
   - TransparentFX

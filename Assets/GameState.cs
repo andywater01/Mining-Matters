@@ -32,6 +32,14 @@ public class GameState : MonoBehaviour
 
     private int currentRoom = 1;
 
+    private bool fixedSawBlade = false;
+
+    private bool unlockedFilingCabinetLock = false;
+
+    private bool hasSawBlade = false;
+
+    private bool isHoldingSawBlade = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -233,4 +241,46 @@ public class GameState : MonoBehaviour
         currentRoom = cr;
     }
 
+
+    public bool GetFixedSawBlade()
+    {
+        return fixedSawBlade;
+    }
+
+    public void SetFixedSawBlade(bool fs)
+    {
+        fixedSawBlade = fs;
+    }
+
+    public bool GetHasUnlockedFilingCabinetLock()
+    {
+        return unlockedFilingCabinetLock;
+    }
+
+    public void SetHasUnlockedFilingCabinetLock(bool cl)
+    {
+        unlockedFilingCabinetLock = cl;
+    }
+
+
+    public bool GetHasSawBlade()
+    {
+        return hasSawBlade;
+    }
+
+    public void SetHasSawBlade(bool sb)
+    {
+        hasSawBlade = sb;
+    }
+
+
+    public bool GetisHoldingSawBlade()
+    {
+        return isHoldingSawBlade;
+    }
+
+    public void SetIsHoldingSawBlade(bool hs)
+    {
+        isHoldingSawBlade = hs;
+    }
 }
