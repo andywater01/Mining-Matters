@@ -114,7 +114,7 @@ public class ButtonPuzzleInteraction : MonoBehaviour
             //4.Wait for it to finish playing
             while (source.isPlaying)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.0f);
                 //yield return null;
             }
 
