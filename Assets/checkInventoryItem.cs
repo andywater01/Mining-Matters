@@ -46,7 +46,9 @@ public class checkInventoryItem : MonoBehaviour
     public GameObject SawBlade;
     public bool isSawBladeActive = false;
     private GameObject activeSawBlade;
-
+    public GameObject BrokenSawBlade;
+    public GameObject NewSawBlade;
+    public CinemachineVirtualCamera VC_SawTable;
 
 
     public void OnInventoryClick()
@@ -114,6 +116,12 @@ public class checkInventoryItem : MonoBehaviour
                     buttonPressed.GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f, 116.0f);
                     
                 }
+
+                else if (VC_SawTable.Priority > 0)
+                {
+                    // Spawn Core on Saw Blade Location
+                }
+
                 else
                 {
                     topText.text = ("You can't use this item here");
@@ -285,7 +293,8 @@ public class checkInventoryItem : MonoBehaviour
         if (puzzlePieces.Count > 0)
             ItemFollowCam(isHoldingPiece, puzzlePieces[PieceIndex], 0, false, 0.7f);
 
-        ItemFollowCam(isSawBladeActive, activeSawBlade, 0, true, 2.0f);
+        if (BrokenSawBlade.activeInHierarchy == true)
+            ItemFollowCam(isSawBladeActive, activeSawBlade, 0, true, 2.0f);
 
 
 
@@ -303,7 +312,7 @@ public class checkInventoryItem : MonoBehaviour
             }
         }
 
-
+        //Spray the spray bottle when left click mouse
         if (Input.GetMouseButton(0) && isSprayBottleActive)
         {
             activeSprayBottle.GetComponentInChildren<ParticleSystem>().Play();
@@ -314,6 +323,30 @@ public class checkInventoryItem : MonoBehaviour
         }
 
 
+        //Check if holding saw blade and click broken one
+        if (Input.GetMouseButtonDown(0) && isSawBladeActive)
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                //Check if you collect the PPE Boots
+                if (hit.transform.gameObject.tag == "BrokenSawBlade")
+                {
+                    BrokenSawBlade.SetActive(false);
+                    NewSawBlade.SetActive(true);
+                    gs.SetisSawBladeFixed(true);
+                    gs.SetIsHoldingSawBlade(false);
+                    gs.SetHasSawBlade(false);
+                    Destroy(activeSawBlade);
+                    topText.text = "The Blade has been fixed!";
+                }
+            }
+        }
+
+
+        //Check if clicking on jigsaw puzzle
         if (Input.GetMouseButtonDown(0) && VC_MiningCycle_VC.Priority == 1 && gs.GetJigSawDone() == false)
         {
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);

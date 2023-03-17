@@ -46,6 +46,7 @@ public class CollectItem : MonoBehaviour
 
     }
 
+    
 
 
     public void ShootRaycast()

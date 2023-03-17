@@ -40,6 +40,8 @@ public class GameState : MonoBehaviour
 
     private bool isHoldingSawBlade = false;
 
+    private bool isSawBladeFixed = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -282,5 +284,15 @@ public class GameState : MonoBehaviour
     public void SetIsHoldingSawBlade(bool hs)
     {
         isHoldingSawBlade = hs;
+    }
+
+    public bool GetisSawBladeFixed()
+    {
+        return isSawBladeFixed;
+    }
+
+    public void SetisSawBladeFixed(bool hs)
+    {
+        isSawBladeFixed = hs;
     }
 }
