@@ -50,6 +50,12 @@ public class checkInventoryItem : MonoBehaviour
     public GameObject NewSawBlade;
     public CinemachineVirtualCamera VC_SawTable;
 
+    //Saw Cores
+    public GameObject SawCoreUncut1;
+    public GameObject SawCoreUncut2;
+    public GameObject SawCoreUncut3;
+    public GameObject SawCoreUncut4;
+
 
     public void OnInventoryClick()
     {
@@ -117,9 +123,57 @@ public class checkInventoryItem : MonoBehaviour
                     
                 }
 
-                else if (VC_SawTable.Priority > 0)
+                else if (VC_SawTable.Priority > 0 && gs.GetHasPlacedInspectCore() == false)
                 {
                     // Spawn Core on Saw Blade Location
+                    if (gs.GetSelectedCore2() == 1)
+                    {
+                        SawCoreUncut1.SetActive(true);
+                        SawCoreUncut2.SetActive(false);
+                        SawCoreUncut3.SetActive(false);
+                        SawCoreUncut4.SetActive(false);
+                        gs.SetHasPlacedInspectCore(true);
+                        gs.SetIsHoldingWetCore(false);
+                        buttonPressed.GetComponent<Image>().sprite = null;
+                        buttonPressed.GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f, 116.0f);
+                    }
+                    else if (gs.GetSelectedCore2() == 2)
+                    {
+                        SawCoreUncut1.SetActive(false);
+                        SawCoreUncut2.SetActive(true);
+                        SawCoreUncut3.SetActive(false);
+                        SawCoreUncut4.SetActive(false);
+                        gs.SetHasPlacedInspectCore(true);
+                        gs.SetIsHoldingWetCore(false);
+                        buttonPressed.GetComponent<Image>().sprite = null;
+                        buttonPressed.GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f, 116.0f);
+                    }
+                    else if (gs.GetSelectedCore2() == 3)
+                    {
+                        SawCoreUncut1.SetActive(false);
+                        SawCoreUncut2.SetActive(false);
+                        SawCoreUncut3.SetActive(true);
+                        SawCoreUncut4.SetActive(false);
+                        gs.SetHasPlacedInspectCore(true);
+                        gs.SetIsHoldingWetCore(false);
+                        buttonPressed.GetComponent<Image>().sprite = null;
+                        buttonPressed.GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f, 116.0f);
+                    }
+                    else if (gs.GetSelectedCore2() == 4)
+                    {
+                        SawCoreUncut1.SetActive(false);
+                        SawCoreUncut2.SetActive(false);
+                        SawCoreUncut3.SetActive(false);
+                        SawCoreUncut4.SetActive(true);
+                        gs.SetHasPlacedInspectCore(true);
+                        gs.SetIsHoldingWetCore(false);
+                        buttonPressed.GetComponent<Image>().sprite = null;
+                        buttonPressed.GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f, 116.0f);
+                    }
+                    else
+                    {
+                        
+                    }
                 }
 
                 else

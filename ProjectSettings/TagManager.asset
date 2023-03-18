@@ -44,6 +44,8 @@ TagManager:
   - Plug
   - RockSampleDesk
   - FilingCabinetLock
+  - WaterHoseSwitch
+  - WaterPipe
   layers:
   - Default
   - TransparentFX

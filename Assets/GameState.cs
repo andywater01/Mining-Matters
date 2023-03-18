@@ -42,6 +42,10 @@ public class GameState : MonoBehaviour
 
     private bool isSawBladeFixed = false;
 
+    private bool hasPlacedInspectCore = false;
+
+    private bool isWaterOn = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -295,4 +299,26 @@ public class GameState : MonoBehaviour
     {
         isSawBladeFixed = hs;
     }
+
+    public bool GetHasPlacedInspectCore()
+    {
+        return hasPlacedInspectCore;
+    }
+
+    public void SetHasPlacedInspectCore(bool pi)
+    {
+        hasPlacedInspectCore = pi;
+    }
+
+
+    public bool GetIsWaterOn()
+    {
+        return isWaterOn;
+    }
+
+    public void SetIsWaterOn(bool pi)
+    {
+        isWaterOn = pi;
+    }
+
 }
