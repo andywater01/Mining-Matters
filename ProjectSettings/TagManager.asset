@@ -46,6 +46,7 @@ TagManager:
   - FilingCabinetLock
   - WaterHoseSwitch
   - WaterPipe
+  - BoxTable
   layers:
   - Default
   - TransparentFX
