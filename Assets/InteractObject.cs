@@ -32,12 +32,14 @@ public class InteractObject : MonoBehaviour
                         this.gameObject.GetComponent<Animation>().Play(animation: "Toggle");
                         topText.text = "Water for Saw has been turned on!";
                         isOn = true;
+                        gs.SetIsWaterOn(true);
                     }
                     else if (isOn == true)
                     {
                         this.gameObject.GetComponent<Animation>().Play(animation: "ToggleBack");
                         topText.text = "Water for Saw has been turned back off!";
                         isOn = false;
+                        gs.SetIsWaterOn(false);
                     }
 
                 }

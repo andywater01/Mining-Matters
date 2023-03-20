@@ -311,6 +311,27 @@ public class CollectItem : MonoBehaviour
 
             }
 
+            //Check if you collect the click on the cut core piece in saw
+            if (hit.transform.gameObject.name == "InspectedCutCore")
+            {
+                gs.SetholdingCutCore(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = (Message);
+                        this.gameObject.SetActive(false);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Cut Core Piece";
+                        break;
+                    }
+                }
+
+
+            }
+
         }
 
     }

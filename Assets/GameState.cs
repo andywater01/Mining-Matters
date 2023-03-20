@@ -46,6 +46,10 @@ public class GameState : MonoBehaviour
 
     private bool isWaterOn = false;
 
+    private bool isSawPowerOn = true; //Set back to false
+
+    private bool holdingCutCore = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -321,4 +325,23 @@ public class GameState : MonoBehaviour
         isWaterOn = pi;
     }
 
+    public bool GetSawPower()
+    {
+        return isSawPowerOn;
+    }
+
+    public void SetSawPower(bool cc)
+    {
+        isSawPowerOn = cc;
+    }
+
+    public bool GetholdingCutCore()
+    {
+        return holdingCutCore;
+    }
+
+    public void SetholdingCutCore(bool cc)
+    {
+        holdingCutCore = cc;
+    }
 }
