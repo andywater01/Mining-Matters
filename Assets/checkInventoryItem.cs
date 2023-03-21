@@ -543,6 +543,7 @@ public class checkInventoryItem : MonoBehaviour
         if (gs.GetSelectedCore2() == 4)
         {
             Debug.Log("This core contained the correct amount of gold!");
+            gs.SetfoundGoldCore(true);
         }
         else
         {

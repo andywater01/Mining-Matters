@@ -332,6 +332,61 @@ public class CollectItem : MonoBehaviour
 
             }
 
+
+            if (hit.transform.gameObject.name == "ResultsCutCore" && gs.GetfoundGoldCore() == true)
+            {
+                gs.SetholdingCutCore(true);
+                for (int i = 0; i <= Inventory.Length; i++)
+                {
+                    if (Inventory[i].sprite == null)
+                    {
+                        Inventory[i].sprite = itemImage;
+                        Inventory[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        TopText.text = "This core contains gold! This is the correct core!";
+                        this.gameObject.SetActive(false);
+                        TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                        Inventory[i].gameObject.GetComponent<AccessibleLabel>().name = "Cut Core Piece";
+                        break;
+                    }
+                }
+
+
+            }
+
+
+            //Switch to room 1 and 3
+            if (hit.transform.gameObject.tag == "Door2" && gs.GetCurrentRoom() == 1)
+            {
+                if (gs.GetfoundGoldCore() == true && gs.GetIsRoom3Unlocked() == false)
+                {
+                    TopText.text = "You have the neccessary items to enter this room.";
+                    TopText.GetComponent<UAP_BaseElement>().SelectItem();
+
+                }
+                else if (gs.GetfoundGoldCore() == true && gs.GetIsRoom3Unlocked() == true)
+                {
+                    TopText.text = "You Can Now Enter This Room!";
+                    TopText.GetComponent<UAP_BaseElement>().SelectItem();
+
+                    gs.SetCurrentRoom(3);
+                }
+                else
+                {
+                    TopText.text = (Message);
+                    TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                }
+
+            }
+            //Switch from room 2 to room 1
+            else if (hit.transform.gameObject.tag == "Door2" && gs.GetCurrentRoom() == 3)
+            {
+                TopText.text = ("Heading back to room 1");
+                TopText.GetComponent<UAP_BaseElement>().SelectItem();
+                gs.SetCurrentRoom(1);
+
+            }
+
+
         }
 
     }

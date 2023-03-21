@@ -50,6 +50,10 @@ public class GameState : MonoBehaviour
 
     private bool holdingCutCore = false;
 
+    private bool foundGoldCore = true; //Set back to false
+
+    private bool isRoom3Unlocked = false;
+
     //Check Mouse Over State
     public bool GetMouseOver()
     {
@@ -344,4 +348,26 @@ public class GameState : MonoBehaviour
     {
         holdingCutCore = cc;
     }
+
+
+    public bool GetfoundGoldCore()
+    {
+        return foundGoldCore;
+    }
+
+    public void SetfoundGoldCore(bool cc)
+    {
+        foundGoldCore = cc;
+    }
+
+    public bool GetIsRoom3Unlocked()
+    {
+        return isRoom3Unlocked;
+    }
+
+    public void SetIsRoom3Unlocked(bool r3)
+    {
+        isRoom3Unlocked = r3;
+    }
 }
+

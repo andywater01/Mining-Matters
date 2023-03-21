@@ -47,6 +47,7 @@ TagManager:
   - WaterHoseSwitch
   - WaterPipe
   - BoxTable
+  - Door2
   layers:
   - Default
   - TransparentFX
