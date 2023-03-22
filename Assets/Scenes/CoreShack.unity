@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 03b7c53a62abf0d41acd9998b3dbdbe6, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -339,7 +339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &23645053
 Transform:
   m_ObjectHideFlags: 0
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aff56af56de0704f9996f2314ce51f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wet: {fileID: 2100000, guid: 0dbca889b42c8e349bbdd1df5a49fa86, type: 2}
+  wet: {fileID: 2100000, guid: 5b62d334d66ae164784ff61ac8e822b8, type: 2}
   render: {fileID: 95382578}
 --- !u!65 &95382582
 BoxCollider:
@@ -3398,6 +3398,7 @@ Transform:
   - {fileID: 1070502203}
   - {fileID: 654668814}
   - {fileID: 23645053}
+  - {fileID: 653933977}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3773,7 +3774,7 @@ PrefabInstance:
     - target: {fileID: 6317578925029434746, guid: a60949affc95b2340b2658b454b20472, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b8a9af9cd9a620e4ca8fef8cd686ceda, type: 2}
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
     - target: {fileID: 7071182760956848314, guid: a60949affc95b2340b2658b454b20472, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3907,7 +3908,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257626284}
   m_LocalRotation: {x: -0.00000004214677, y: -0, z: 7.996093e-11, w: 1}
-  m_LocalPosition: {x: 13.687, y: 0.0354, z: -11.29}
+  m_LocalPosition: {x: 13.708, y: 0.0354, z: -11.29}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1473221028}
@@ -4310,7 +4311,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -4615,7 +4616,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -5088,7 +5089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aff56af56de0704f9996f2314ce51f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wet: {fileID: 2100000, guid: 0dbca889b42c8e349bbdd1df5a49fa86, type: 2}
+  wet: {fileID: 2100000, guid: 8d1a37a5bb831ed49a80ed7494fd5200, type: 2}
   render: {fileID: 344070930}
 --- !u!65 &344070934
 BoxCollider:
@@ -6733,7 +6734,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6811,7 +6812,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -7527,7 +7528,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498466801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
@@ -7655,7 +7656,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.66625136, g: 0.71136755, b: 0.7169812, a: 1}
-  m_Intensity: 1605560.4
+  m_Intensity: 305.1
   m_Range: 60
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
@@ -8077,7 +8078,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -9052,6 +9053,99 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6953b58e79885b4888c908b16e92b28, type: 3}
+--- !u!1 &653933976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653933977}
+  - component: {fileID: 653933978}
+  m_Layer: 0
+  m_Name: Spot Light (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653933977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653933976}
+  m_LocalRotation: {x: 0.21106456, y: -0.71486944, z: 0.28341132, w: 0.6034}
+  m_LocalPosition: {x: 27.01, y: 54.34, z: -23.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 237850038}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 41.294, y: -98.509, z: 3.071}
+--- !u!108 &653933978
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653933976}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 46.3
+  m_Range: 65.7
+  m_SpotAngle: 126.26804
+  m_InnerSpotAngle: 1.2025528
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &654668813
 GameObject:
   m_ObjectHideFlags: 0
@@ -9069,7 +9163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &654668814
 Transform:
   m_ObjectHideFlags: 0
@@ -9826,7 +9920,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -10098,13 +10192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755909344}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 28.76, y: 53.36, z: -9.3}
+  m_LocalRotation: {x: 0.49779755, y: -0, z: -0, w: 0.86729324}
+  m_LocalPosition: {x: 27.927, y: 57.7, z: -25.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237850038}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 59.709, y: 0, z: 0}
 --- !u!114 &755909346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10112,7 +10206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755909344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
@@ -10240,10 +10334,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.66625136, g: 0.71136755, b: 0.7169812, a: 1}
-  m_Intensity: 1605560.4
+  m_Intensity: 209
   m_Range: 60
   m_SpotAngle: 179
-  m_InnerSpotAngle: 21.80208
+  m_InnerSpotAngle: 21.802078
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -10871,7 +10965,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -10953,7 +11047,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 95e4fdc4956156f4ca14c1f752e45718, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11272,7 +11366,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bdb6edcd97cdf88458995e383ec3be1d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb6edcd97cdf88458995e383ec3be1d, type: 3}
       propertyPath: m_LocalScale.x
@@ -11430,7 +11524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22474968, guid: 89f4a0ae7ea3fa84ea56c91291d7bd87, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.5000763
+      value: -1.5001221
       objectReference: {fileID: 0}
     - target: {fileID: 4973883477652662, guid: 89f4a0ae7ea3fa84ea56c91291d7bd87, type: 3}
       propertyPath: m_RootOrder
@@ -12492,7 +12586,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -13409,7 +13503,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -14261,6 +14355,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: WaterHoseSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: -6902573867230041995, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
+    - target: {fileID: -1439730007547781893, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
     - target: {fileID: 919132149155446097, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
       propertyPath: m_Name
       value: WaterHosePipe
@@ -14269,6 +14371,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: WaterPipe
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
     - target: {fileID: 2223639932434330405, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
       propertyPath: m_PlayAutomatically
       value: 0
@@ -14285,6 +14391,18 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[2]
       value: 
       objectReference: {fileID: 3280288392147734831, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+    - target: {fileID: 6944656104360116776, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
+    - target: {fileID: 7071182760956848314, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b511f4e1f6667746a1169d3376df84f, type: 3}
 --- !u!1 &1046974323
@@ -14521,8 +14639,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &1070502203
 Transform:
   m_ObjectHideFlags: 0
@@ -14530,13 +14648,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070502202}
-  m_LocalRotation: {x: 0.69058233, y: -0.15197384, z: -0.15197384, w: 0.69058233}
-  m_LocalPosition: {x: 21.878, y: 52.507, z: -24.365}
+  m_LocalRotation: {x: 0.4743593, y: 0.2565105, z: -0.0065204776, w: 0.84210646}
+  m_LocalPosition: {x: 22.619, y: 55.182, z: -27.685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237850038}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 65.178, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 53.347, y: 45.506, z: 22.908}
 --- !u!114 &1070502204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14544,7 +14662,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070502202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
@@ -14672,10 +14790,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 64636.484
-  m_Range: 12.44
-  m_SpotAngle: 119
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 68.6
+  m_Range: 60
+  m_SpotAngle: 97.19785
+  m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -14715,8 +14833,8 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 1
+  m_ColorTemperature: 6920
+  m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -15012,7 +15130,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -15249,7 +15367,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -16645,7 +16763,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -16976,7 +17094,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -17228,7 +17346,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -17836,7 +17954,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -18801,7 +18919,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bdb6edcd97cdf88458995e383ec3be1d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb6edcd97cdf88458995e383ec3be1d, type: 3}
       propertyPath: m_LocalScale.x
@@ -19113,6 +19231,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6093592463355912122, guid: 9ebbc255ad04a5c41888c7224460201d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b35461c46393004497bd2c998f42be8, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 9ebbc255ad04a5c41888c7224460201d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b35461c46393004497bd2c998f42be8, type: 2}
     - target: {fileID: 327064008815436722, guid: 9ebbc255ad04a5c41888c7224460201d, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
@@ -19305,7 +19431,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -19463,7 +19589,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -20116,7 +20242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -155.9571, y: 28.7579}
+  m_AnchoredPosition: {x: -155.95715, y: 28.757874}
   m_SizeDelta: {x: 188.0124, y: 304.9173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563636799
@@ -20584,7 +20710,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -22826,7 +22952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707948816}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
@@ -22954,7 +23080,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.66625136, g: 0.71136755, b: 0.7169812, a: 1}
-  m_Intensity: 1605560.4
+  m_Intensity: 259.4
   m_Range: 60
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
@@ -23059,6 +23185,7 @@ GameObject:
   - component: {fileID: 1736072089}
   - component: {fileID: 1736072088}
   - component: {fileID: 1736072094}
+  - component: {fileID: 1736072093}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -23279,6 +23406,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1736072093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736072087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!114 &1736072094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26350,7 +26509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aff56af56de0704f9996f2314ce51f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wet: {fileID: 2100000, guid: 0dbca889b42c8e349bbdd1df5a49fa86, type: 2}
+  wet: {fileID: 2100000, guid: 1b8f1e33dffb9bd4abca150c68aa488b, type: 2}
   render: {fileID: 1944750878}
 --- !u!65 &1944750882
 BoxCollider:
@@ -27814,7 +27973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2029981946
 Transform:
   m_ObjectHideFlags: 0
@@ -27836,7 +27995,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029981945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
@@ -27964,7 +28123,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.66625136, g: 0.71136755, b: 0.7169812, a: 1}
-  m_Intensity: 1605560.4
+  m_Intensity: 101.6
   m_Range: 60
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
@@ -29349,7 +29508,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77707, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -30497,7 +30656,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30539,7 +30698,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30595,7 +30754,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30729,7 +30888,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30881,7 +31040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31626,7 +31785,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 601df84f9a38e5f43861d8de3ede6a94, type: 2}
+  - {fileID: -5893160060819351940, guid: a60949affc95b2340b2658b454b20472, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32135,7 +32294,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32523,7 +32682,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32924,7 +33083,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -33529,7 +33688,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd536122ec80574ea002f945d748bf3, type: 2}
+  - {fileID: 2100000, guid: d645fa5aa972dad45b7654aedb664abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

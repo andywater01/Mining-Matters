@@ -126,7 +126,10 @@ public class CollectItem : MonoBehaviour
             else if (hit.transform.gameObject.tag == "InspectCore" && gs.GetIsHoldingWetCore() == false)
             {
                 Debug.Log(hit.transform.gameObject.GetComponent<Renderer>().material.name);
-                if (hit.transform.gameObject.GetComponent<Renderer>().material.name == ("Sprayed (Instance)"))
+                if (hit.transform.gameObject.GetComponent<Renderer>().material.name == ("Sprayed (Instance)") || 
+                    hit.transform.gameObject.GetComponent<Renderer>().material.name == ("Sprayed 1 (Instance)") ||
+                    hit.transform.gameObject.GetComponent<Renderer>().material.name == ("Sprayed 2 (Instance)") ||
+                    hit.transform.gameObject.GetComponent<Renderer>().material.name == ("Sprayed 3 (Instance)"))
                 {
                     if (hit.transform.gameObject.name == "CorePieceToInspect1")
                         gs.SetSelectedCore2(1);
